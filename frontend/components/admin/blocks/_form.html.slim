@@ -1,0 +1,16 @@
+.admin-blocks-card.js-blocks-form
+  - block_name = block.class.to_s.tableize
+  .admin-blocks-card-header
+    .admin-blocks-card-title= block.block_name
+    .admin-blocks-card-actions
+      = c "admin/button", icon: "arrow-up", modifiers: "is-small js-blocks-up", title: "Move up"
+      = c "admin/button", icon: "arrow-down", modifiers: "is-small js-blocks-down", title: "Move down"
+      = c "admin/button", tag: "span", icon: "move", modifiers: "is-small js-blocks-handle", title: "Drag and reorder"
+      = c "admin/button", icon: "trash", modifiers: "is-small js-blocks-destroy", title: "Delete this block"
+      = c "admin/button", icon: "trash-2", modifiers: "is-small js-blocks-undestroy", title: "Cancel the deletion of this block"
+  .admin-blocks-card-content
+    - form.fields_for block_name, block, child_index: index do |t|
+      = t.hidden_field :id, value: block.id
+      = t.hidden_field :position, value: block.position, class: "js-blocks-position"
+      = t.hidden_field :_destroy, value: false, class: "js-blocks-destroy-field"
+      = render "components/#{block_name.singularize}/block_form", block_form: t

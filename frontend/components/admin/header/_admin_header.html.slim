@@ -1,0 +1,29 @@
+header.admin-header
+  = link_to site_name, komposable.root_path, class: "admin-header-title"
+  nav.admin-header-nav.is-primary
+    ul.admin-header-nav-items
+      - items.each do |item|
+        - current_item = current_controller?(item.text.underscore)
+        li.admin-header-nav-item(class=classnames('is-current': current_item))
+          = link_to item.text, item.href
+  nav.admin-header-nav.is-secondary
+    ul.admin-header-nav-items
+      - if current_user
+        li.admin-header-nav-item
+          = link_to komposable.edit_user_path(current_user)
+            = c "admin/icon", icon: "user", modifiers: "is-before-text"
+            =< current_user.full_name || current_user.email
+        li.admin-header-nav-item= link_to "Logout", komposable.logout_path, method: :post
+      - else
+        li.admin-header-nav-item= link_to "Login", komposable.login_path
+      li.admin-header-nav-item
+        = link_to "#"
+          = c "admin/icon", icon: "search"
+      li.admin-header-nav-item
+        = link_to "#"
+          = c "admin/icon", icon: "help-circle"
+  .admin-header-notices
+    - if flash[:notice]
+      = c "admin/notice", icon: "info", text: flash[:notice], modifiers: "is-info js-is-hidden"
+    - if flash[:alert]
+      = c "admin/notice", icon: "alert-circle", text: flash[:alert], modifiers: "is-alert js-is-hidden"

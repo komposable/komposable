@@ -1,0 +1,128 @@
+@import "base/colors";
+
+.admin-form-items {
+  /* stylelint-disable declaration-block-no-duplicate-properties */
+  display: flex;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  grid-auto-rows: minmax(10rem, auto);
+  padding: 2rem;
+  /* stylelint-enable */
+
+  &-item {
+    align-items: center;
+    background: var(--white) center center no-repeat;
+    background-size: cover;
+    border: 0.1rem solid var(--border-color);
+    box-shadow: 0;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 500;
+    height: 10rem;
+    justify-content: center;
+    margin: 0.5rem;
+    transition: box-shadow 0.2s ease;
+    width: 12rem;
+
+    /* needed for flex */
+    flex: 1 1 20rem;
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem
+        color(var(--brand-bg-color) shade(20%) alpha(0.75));
+      outline: none;
+    }
+
+    &.is-destroyed {
+      text-decoration: line-through;
+      position: relative;
+
+      &:after {
+        background: repeating-linear-gradient(
+          45deg,
+          color(var(--brand-bg-color) shade(5%)),
+          color(var(--brand-bg-color) shade(5%)) 1rem,
+          var(--white) 1rem,
+          var(--white) 2rem
+        );
+        content: "";
+        display: block;
+        height: 100%;
+        opacity: 0.7;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    &.has-image {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+
+  &-modal {
+    background-color: var(--white);
+    border: 0;
+    border-right: 0.1rem solid var(--border-color);
+    box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.16);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    max-width: 100%;
+    overflow: auto;
+    padding: 4rem;
+    position: fixed;
+    right: auto;
+    top: 0;
+    transform: translateX(0);
+    transition: transform 0.2s ease;
+    width: 60rem;
+    z-index: 667;
+
+    &-wrapper {
+      &[aria-hidden="true"] {
+        .admin-form-items-modal {
+          transform: translateX(-100%);
+        }
+
+        .admin-form-items-modal-overlay {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+    }
+
+    &-overlay {
+      background: color(var(--brand-bg-color) shade(10%) alpha(0.75));
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      opacity: 0.8;
+      position: fixed;
+      right: 0;
+      top: 0;
+      transition: opacity 0.2s ease;
+      z-index: 666;
+
+      &[data-background-click="disabled"] {
+        cursor: auto;
+      }
+    }
+
+    .admin-heading {
+      padding-top: 0;
+    }
+  }
+}
+
+.js-admin-form-items-form {
+  display: none;
+
+  .js-admin-form-items-modal-content & {
+    display: block;
+  }
+}

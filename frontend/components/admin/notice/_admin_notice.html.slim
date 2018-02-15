@@ -1,0 +1,4 @@
+.admin-notice(class=@modifiers data-controller="admin-notice")
+  = c "admin/icon", icon: @icon, modifiers: "admin-notice-icon" if @icon
+  span.admin-notice-text= @text
+  = c "admin/button", icon: "x", modifiers: "admin-notice-close", data: { action: "admin-notice#close" }

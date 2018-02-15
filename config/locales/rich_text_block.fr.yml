@@ -1,0 +1,6 @@
+fr:
+  activerecord:
+    models:
+      rich_text_block:
+    attributes:
+      rich_text_block:

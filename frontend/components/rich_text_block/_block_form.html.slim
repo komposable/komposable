@@ -1,0 +1,4 @@
+.rich_text_block_form(data-controller="rich-text-block")
+  = block_form.hidden_field :text, data: {target: "rich-text-block.input"}
+  div(data-target="rich-text-block.editor")
+    == block_form.object.text

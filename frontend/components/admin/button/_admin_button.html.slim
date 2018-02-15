@@ -1,0 +1,10 @@
+- content = capture do
+  = c "admin/icon", icon: @icon, modifiers: "admin-button-icon" if @icon
+  - if @text
+    span.admin-button-text= @text
+- if link?
+  = link_to @href, title: @title, class: modifiers, target: @target, data: @data, method: @method, aria: @aria do
+    = content
+- else
+  *element
+    = content

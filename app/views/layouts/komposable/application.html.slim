@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    = display_meta_tags site: "Admin #{t("site_name")}", separator: "–", reverse: true
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    = csrf_meta_tags
+
+    script(type="text/javascript" src="//use.typekit.net/uos3win.js")
+    javascript:
+      try{Typekit.load();}catch(e){}
+
+    = stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload'
+
+  body.is-admin
+    .js-page-wrapper
+      = c "admin/header"
+      = yield
+    = yield :modals
+    = javascript_pack_tag 'admin', 'data-turbolinks-eval': 'false'

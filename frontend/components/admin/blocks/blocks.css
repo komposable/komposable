@@ -1,0 +1,177 @@
+@import "base/colors";
+
+.admin-blocks {
+  border-top: 0.1rem solid var(--border-color);
+  margin-top: 3rem;
+  padding-top: 2rem;
+
+  &-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+
+  &-buttons {
+    &-toggle {
+      background: none;
+      border: 0;
+      color: var(--primary-color);
+      cursor: pointer;
+      display: block;
+      height: 3.6rem;
+      opacity: 0.5;
+      text-align: center;
+      width: 100%;
+
+      &:hover,
+      &:focus {
+        background: var(--white);
+        box-shadow: none;
+        opacity: 1;
+      }
+    }
+
+    &-items {
+      height: 0;
+      overflow: hidden;
+
+      .admin-blocks-card {
+        margin: 1rem 0;
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      &.is-visible {
+        height: auto;
+
+        .admin-blocks-card {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  &-card {
+    border: 0.1rem solid var(--border-color);
+    border-radius: 0.4rem;
+    overflow: hidden;
+
+    &-header {
+      align-items: center;
+      border-bottom: 0.1rem solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 1.6rem 0.8rem 2rem;
+    }
+
+    &-actions {
+      .admin-button {
+        opacity: 0.2;
+
+        &:hover,
+        &:focus,
+        .admin-blocks-card-header:hover & {
+          opacity: 1;
+        }
+      }
+    }
+
+    &-content {
+      background-color: var(--white);
+
+      &.has-padding {
+        padding: 2rem;
+      }
+
+      .admin-button {
+        display: inline-block;
+      }
+
+      /* TODO: move this to the rich_text_block CSS */
+      .ql-toolbar.ql-snow {
+        background-color: color(var(--brand-bg-color) shade(5%));
+        border: 0;
+      }
+
+      .ql-container.ql-snow {
+        border: 0;
+      }
+
+      .ql-editor {
+        min-height: 20rem;
+      }
+    }
+
+    &.is-primary {
+      &,
+      .admin-blocks-card-header {
+        border-color: color(var(--color-primary) lightness(80%));
+      }
+
+      .admin-blocks-card-header {
+        background-color: color(var(--color-primary) lightness(92%));
+        color: var(--color-primary);
+        font-weight: 500;
+      }
+    }
+  }
+
+  /* Styling for JS elements */
+  .js-blocks-item {
+    &:first-child .admin-button.js-blocks-up,
+    &:last-child .admin-button.js-blocks-down {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .admin-button.js-blocks-handle {
+      cursor: move;
+      cursor: -webkit-grabbing;
+    }
+
+    .js-blocks-undestroy {
+      display: none;
+    }
+
+    &.is-ghost {
+      background-color: var(--white);
+
+      .admin-blocks-card-title,
+      .admin-blocks-card-actions,
+      .admin-blocks-card-content {
+        visibility: hidden;
+      }
+    }
+
+    &.is-destroyed {
+      .js-blocks-up,
+      .js-blocks-down,
+      .js-blocks-handle,
+      .js-blocks-destroy,
+      .admin-blocks-card-content {
+        display: none;
+      }
+
+      .js-blocks-undestroy {
+        display: inline-flex;
+      }
+
+      .admin-blocks-card-header {
+        background: repeating-linear-gradient(
+          45deg,
+          color(var(--brand-bg-color) shade(5%)),
+          color(var(--brand-bg-color) shade(5%)) 1rem,
+          var(--brand-bg-color) 1rem,
+          var(--brand-bg-color) 2rem
+        );
+        border-bottom: 0;
+      }
+
+      .admin-blocks-card-title {
+        text-decoration: line-through;
+      }
+    }
+  }
+}

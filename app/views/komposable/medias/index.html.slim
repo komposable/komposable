@@ -1,0 +1,12 @@
+- set_meta_tags title: "Media Library"
+
+= c "admin/container"
+
+  = c "admin/heading", title: page_title
+    = c "admin/button", icon: "upload", text: "Upload", href: "#", modifiers: %w[is-primary has-outline]
+
+  - if @items.count.zero?
+    p Nothing to display.
+  - else
+    - @items.each do |item|
+      = c "admin/media", media: item

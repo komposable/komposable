@@ -1,0 +1,13 @@
+.admin-icon {
+  min-height: 2.4rem;
+  min-width: 2.4rem;
+
+  /* modifiers */
+  &.is-after-text {
+    margin-left: 0.5rem;
+  }
+
+  &.is-before-text {
+    margin-right: 0.5rem;
+  }
+}

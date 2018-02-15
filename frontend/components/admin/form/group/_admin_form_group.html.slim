@@ -1,0 +1,6 @@
+.admin-form-group
+  label.admin-form-group-label
+    = @label
+    - if @help
+      span.admin-form-group-help= @help
+  = yield

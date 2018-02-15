@@ -1,0 +1,24 @@
+{
+  "name": "komposable",
+  "version": "0.0.1",
+  "description": "A Rails engine",
+  "main": "index.js",
+  "repository": "git@github.com:komposable/komposable.git",
+  "author": "Komposable <contact@ouvrages-web.fr>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-webpack": "^0.8.4",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.5.0",
+    "lint-staged": "^6.0.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.10.2",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0",
+    "webpack-dev-server": "^2.11.0"
+  }
+}

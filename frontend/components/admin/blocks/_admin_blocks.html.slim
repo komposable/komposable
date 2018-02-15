@@ -1,0 +1,14 @@
+.admin-blocks
+  - @form.object.block_buttons.each do |block_name|
+    - block_name_singular = block_name.to_s.singularize
+    - block = block_name_singular.classify.constantize.new
+    template(id=block_name)
+      = render "buttons", form: @form
+      = render("form", block: block, index: "__NEW__#{block.class.name.underscore.singularize.upcase}__", form: @form)
+  .js-blocks-component
+    .js-blocks-list
+      - @form.object.blocks.each do |block|
+        .js-blocks-item
+          = render "buttons", form: @form
+          = render "form", form: @form, block: block, index: nil
+    = render "buttons", form: @form

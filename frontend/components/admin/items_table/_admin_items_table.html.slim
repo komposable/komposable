@@ -1,0 +1,25 @@
+table.admin-items-table(cellspacing="0" data-controller="admin-items-table")
+  - if @items
+    thead
+      tr
+        - @columns.each do |column|
+          th= column.to_s.humanize
+        th
+
+    - if @items.count.zero?
+      tfoot
+        tr
+          td(colspan="2") Nothing to display.
+    - else
+      tbody(data-action="click->admin-items-table#clickBody")
+        - @items.each do |item|
+          tr
+            - @columns.each do |column|
+              - column_tag = { tag: column == @columns.first ? "th" : "td" }
+              *column_tag
+                = item.public_send(column)
+            td.admin-items-table-actions
+              = c "admin/button", text: "Edit", href: edit_path(item), modifiers: %w[has-outline is-secondary is-default-action]
+              = c "admin/button", text: "Destroy", href: item_path(item), modifiers: %w[as-link is-secondary], data: { confirm: 'Are you sure?' }, method: :delete
+  - else
+    = yield

@@ -1,0 +1,10 @@
+@import "base/colors";
+
+.admin-container {
+  margin: 0 auto;
+  max-width: 114rem;
+
+  &:last-child {
+    margin-bottom: 5rem;
+  }
+}

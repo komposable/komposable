@@ -1,0 +1,32 @@
+:root {
+  /* Set the client brand color, so it can be reused in the admin */
+  --brand-color: #ffd700;
+  --brand-bg-color: #fffbed;
+  --border-color: color(var(--brand-bg-color) shade(10%));
+
+  /* Main colors */
+  --color-primary: #62bb6d;
+  --color-secondary: #0c518a;
+  --color-tertiary: #fff0cc;
+
+  /* Colors */
+  --red: #db4b4b;
+  --yellow: #ffd700;
+  --green: #62bb6d;
+  --lightyellow: color(var(--yellow) lightness(+30%));
+
+  /* Shades of gray */
+  --black: #000;
+  --gray2A: #2a2a2a;
+  --gray33: #333;
+  --gray55: #555;
+  --gray77: #777;
+  --gray99: #999;
+  --grayAA: #aaa;
+  --grayCC: #ccc;
+  --grayEA: #eaeaea;
+  --grayF0: #f0f0f0;
+  --grayF1: #f1f1f1;
+  --grayF6: #f6f6f6;
+  --white: #fff;
+}

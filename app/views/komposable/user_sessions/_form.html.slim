@@ -1,0 +1,11 @@
+= c "admin/container"
+  = c "admin/heading", title: page_title
+
+  = form_for :user_session, url: {action: "create"}, html: {class: "admin-form"} do |f|
+    = c "admin/form/group", label: "Email"
+      = f.email_field :email
+
+    = c "admin/form/group", label: "Password"
+      = f.password_field :password
+
+    = c "admin/button", icon: "log-in", text: "Log in", type: "submit", modifiers: "is-primary has-outline"

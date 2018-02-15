@@ -1,0 +1,133 @@
+@import "base/colors";
+
+.admin-button {
+  align-items: center;
+  border: 0;
+  border-radius: 0.4rem;
+  box-shadow: 0;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-family);
+  font-size: 1.6rem;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 0.6rem 1.2rem;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  & + & {
+    margin-left: 1.6rem;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem color(var(--brand-color) shade(30%) alpha(0.5));
+    outline: none;
+  }
+
+  &-icon ~ &-text {
+    margin-left: 0.5rem;
+  }
+
+  /* modifiers */
+  &.is-primary {
+    color: var(--color-primary);
+    font-weight: 500;
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem color(var(--color-primary) alpha(0.5));
+    }
+  }
+
+  &.is-secondary {
+    color: color(var(--brand-bg-color) shade(40%));
+  }
+
+  &.as-link {
+    border: 0;
+    padding: 0 0.5rem;
+
+    &:hover {
+      .admin-button-icon,
+      .admin-button-text {
+        color: var(--black);
+      }
+    }
+  }
+
+  &.is-small {
+    .admin-button-icon {
+      height: 1.8rem;
+      min-height: 1.8rem;
+      min-width: 1.8rem;
+      width: 1.8rem;
+    }
+  }
+
+  &.is-large {
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    padding: 0.8rem 1.6rem;
+
+    .admin-button-icon ~ .admin-button-text {
+      margin-left: 1rem;
+    }
+  }
+
+  &.has-outline {
+    background: none;
+    border: 0.1rem solid currentColor;
+
+    &:hover {
+      background-color: currentColor;
+
+      .admin-button-icon,
+      .admin-button-text {
+        color: var(--white);
+      }
+    }
+  }
+
+  &.has-icon {
+    &:not(.has-icon-only, .has-icon-on-top) {
+      padding-left: 0.8rem;
+
+      &.is-large {
+        padding-left: 1.4rem;
+      }
+    }
+  }
+
+  &.has-icon-only {
+    background: transparent;
+    border: 0;
+
+    & + & {
+      margin-left: 1rem;
+    }
+
+    &.is-small {
+      padding: 0.4rem;
+    }
+  }
+
+  &.has-icon-on-top {
+    display: block;
+    padding-top: 1rem;
+    text-align: center;
+
+    .admin-button-icon {
+      display: block;
+      margin: 0 auto 0.2rem;
+    }
+
+    .admin-button-text {
+      margin-left: 0;
+    }
+  }
+}

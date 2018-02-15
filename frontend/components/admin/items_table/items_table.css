@@ -1,0 +1,41 @@
+@import "base/colors";
+
+.admin-items-table {
+  max-width: 100%;
+  width: 100%;
+
+  th,
+  td {
+    padding: 1rem;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  thead {
+    th {
+      border-bottom: 0.2rem solid color(var(--brand-bg-color) shade(10%));
+      vertical-align: bottom;
+    }
+  }
+
+  tbody {
+    tr {
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--white);
+      }
+    }
+
+    th,
+    td {
+      border-bottom: 0.1rem solid color(var(--brand-bg-color) shade(10%));
+    }
+  }
+
+  &-actions {
+    text-align: right;
+  }
+}

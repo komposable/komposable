@@ -1,0 +1,11 @@
+:root {
+  --container-max-width: 130rem;
+  --components-max-width: 56rem;
+  --font-family: "proxima-nova", sans-serif;
+}
+
+@custom-media --small (max-width: 499px);
+@custom-media --small-and-medium (max-width: 799px);
+@custom-media --medium (min-width: 500px and max-width: 799px);
+@custom-media --medium-and-large (min-width: 500px);
+@custom-media --large (min-width: 800px);

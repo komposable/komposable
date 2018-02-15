@@ -1,0 +1,5 @@
+.admin-form-upload
+  - if attachment?
+    = c "admin/media", media: record_attachment
+  - else
+    = @form.file_field @attachment, direct_upload: true

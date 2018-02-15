@@ -1,0 +1,27 @@
+= c "admin/container", modifiers: "has-sticky-heading"
+  = form_for @item, html: {class: "admin-form"} do |f|
+    = c "admin/heading", title: page_title
+      = c "admin/button", text: "Back", href: @index_path, modifiers: "is-secondary as-link"
+      = c "admin/button", icon: "save", text: @item.new_record? ? "Create" : "Save", type: "submit", modifiers: "is-primary has-outline is-large"
+
+    - if @item.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
+        ul
+          - @item.errors.full_messages.each do |message|
+            li = message
+
+    = c "admin/form/group", label: "Email"
+      = f.email_field :email
+
+    = c "admin/form/group", label: "First name"
+      = f.text_field :first_name
+
+    = c "admin/form/group", label: "Last name"
+      = f.text_field :last_name
+
+    = c "admin/form/group", label: "Password", help: "must be at least 8 characters long"
+      = f.password_field :password
+
+    = c "admin/form/group", label: "Password confirmation", help: "same as above"
+      = f.password_field :password_confirmation

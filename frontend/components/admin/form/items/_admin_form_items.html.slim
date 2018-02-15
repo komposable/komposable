@@ -1,0 +1,20 @@
+.admin-form-items(data-controller="admin-form-items")
+  - @form.object.items.each do |item|
+    button.admin-form-items-item(type="button" data-a11y-dialog-show="admin-form-items-modal" style=item_background_image(item) class=classnames("has-image": item.image&.attached?))
+      = item.title
+    .js-admin-form-items-form
+      = render "components/#{@block_name}/item_form", item: item, index: nil, form: @form
+  = c "admin/button", icon: "plus-square", modifiers: "admin-form-items-item", data: {"a11y-dialog-show": "admin-form-items-modal"}
+  .js-admin-form-items-form
+    = render "components/#{@block_name}/item_form", item: @form.object.items.build, index: nil, form: @form
+
+- unless content_for? :modals
+  - content_for :modals do
+    #admin-form-items-modal.admin-form-items-modal-wrapper.js-admin-form-items-modal(aria-hidden="true")
+      .admin-form-items-modal-overlay(tabindex="-1" data-a11y-dialog-hide)
+      .admin-form-items-modal(role="dialog" aria-labelledby="admin-form-items-modal-title-#{random_id}")
+        div(role="document")
+          = c "admin/heading", title: "Edit Carousel Item", title_id: "admin-form-items-modal-title-#{random_id}"
+            = c "admin/button", icon: "check", text: "Confirm", modifiers: "is-primary has-outline", data: {"a11y-dialog-hide": true}, aria: {label: "Close and go back to the form"}
+            = c "admin/button", icon: "trash", modifiers: "is-small js-admin-form-items-destroy", title: "Delete this item"
+          .js-admin-form-items-modal-content

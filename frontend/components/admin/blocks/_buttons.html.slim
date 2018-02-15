@@ -1,0 +1,13 @@
+.admin-blocks-buttons.js-blocks-buttons
+  = c "admin/button", icon: "plus-circle", modifiers: "admin-blocks-buttons-toggle js-blocks-buttons-toggle"
+  .js-blocks-buttons-items.admin-blocks-buttons-items
+    .admin-blocks-card.is-primary
+      .admin-blocks-card-header
+        .admin-blocks-card-title= "Pick a component"
+        .admin-blocks-card-actions
+          = c "admin/button", icon: "x", modifiers: "is-small js-blocks-buttons-close"
+      .admin-blocks-card-content.has-padding
+        - form.object.block_buttons.each do |block_name|
+          - block_name_singular = block_name.to_s.singularize
+          - block = block_name_singular.classify.constantize.new
+          = c "admin/button", icon: block.block_icon, text: block.block_name, modifiers: "is-secondary has-outline has-icon-on-top js-blocks-button-add", data: { block: block_name }

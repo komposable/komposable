@@ -1,0 +1,48 @@
+@import "../../../base/colors";
+
+.admin-media {
+  align-items: center;
+  background-color: var(--white);
+  border: 0.1rem solid var(--border-color);
+  border-radius: 0.4rem;
+  box-shadow: 0;
+  color: var(--gray33);
+  display: inline-flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  font-size: 1.3rem;
+  height: 17rem;
+  justify-content: space-around;
+  margin-bottom: 1.4rem;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: 17.8rem;
+
+  & + & {
+    margin-left: 1.4rem;
+  }
+
+  &:nth-child(7n+1) {
+    margin-left: 0;
+  }
+
+  &:hover,
+  &:focus {
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem color(var(--brand-color) shade(30%) alpha(0.5));
+    outline: none;
+  }
+
+  &-meta {
+    line-height: 1.4;
+    text-align: center;
+
+    &-size {
+      color: var(--gray99);
+    }
+  }
+}

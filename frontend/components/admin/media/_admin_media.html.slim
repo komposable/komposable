@@ -1,0 +1,5 @@
+= link_to @media.service_url, class: "admin-media", target: "_blank"
+  = image_tag @media.variant(resize: "150x150").processed.service_url
+  .admin-media-meta
+    strong.admin-media-meta-name= @media.filename
+    .admin-media-meta-size=< number_to_human_size(@media.byte_size)
