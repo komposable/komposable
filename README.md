@@ -69,37 +69,11 @@ Create a new javascript pack:
 import "komposable/frontend/packs/admin";
 ```
 
-Create the NavigationConcern:
+# Navigation
 
-```rb
-# app/controllers/concerns/admin/navigation_concern.rb
-# TODO: replace with a component to be overriden in the main app
+To define your own navigation in the admin, you can override the `admin/header` component.
 
-module Admin
-  module NavigationConcern
-    extend ActiveSupport::Concern
-    # This concern helps you configure Komposable admin panel navigation
-
-    def site_name
-      # This name will be displayed in the header.
-      t("site_name")
-    end
-
-    class Item < Struct.new(:text, :href); end
-
-    def items
-      # These are the items that will be displayed in the main navigation.
-      # Start the path with `[main_app, :admin, ...]` if the controller lives in the main app, or with `[komposable, ...]` if it's from the engine.
-      return [] unless logged_in?
-
-      i = []
-
-      # i << Item.new("Pages", [main_app, :admin, :pages]) if policy(Page).index?
-      i << Item.new("Medias", [komposable, :medias]) #if policy(Media).index?
-      i << Item.new("Users", [komposable, :users]) if policy(User).index?
-
-      i
-    end
-  end
-end
+```
+$ mkdir frontend/components/admin
+$ cp -r vendor/komposable/frontend/components/admin/header frontend/components/admin
 ```

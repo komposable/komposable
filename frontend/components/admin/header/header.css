@@ -31,25 +31,22 @@
       display: inline-block;
       vertical-align: middle;
 
+      > a {
+        align-items: center;
+        color: var(--gray77);
+        display: flex;
+        line-height: 4rem;
+        padding: 0 1rem;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          color: var(--white);
+        }
+      }
+
       &,
       &.is-current > a {
-        color: var(--white);
-      }
-
-      > a {
-        padding: 0 1rem;
-      }
-    }
-
-    a {
-      align-items: center;
-      color: var(--gray77);
-      display: flex;
-      line-height: 4rem;
-      text-decoration: none;
-
-      &:hover,
-      &:focus {
         color: var(--white);
       }
     }
