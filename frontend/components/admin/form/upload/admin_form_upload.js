@@ -1,4 +1,4 @@
-import "./upload.css";
+import "./admin_form_upload.css";
 
 addEventListener("direct-upload:initialize", event => {
   console.log(event);

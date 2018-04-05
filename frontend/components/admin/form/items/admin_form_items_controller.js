@@ -1,7 +1,4 @@
-import 'babel-polyfill';
-import "./items.css";
 import A11yDialog from 'a11y-dialog';
-
 import { Controller } from "stimulus"
 
 export default class extends Controller {

@@ -1,4 +1,4 @@
-import "./blocks.css";
+import "./admin_blocks.css";
 
 import Blocks from './blocks_core';
 

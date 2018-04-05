@@ -13,12 +13,14 @@ import "components/blocks";
 
 import Application from "stimulus_application";
 import { definitionsFromContext } from "stimulus/webpack-helpers";
+import Rails from "rails-ujs";
+import Turbolinks from "turbolinks";
+import * as ActiveStorage from "activestorage";
+
+Rails.start();
+Turbolinks.start();
+ActiveStorage.start();
+
 const context = require.context("../components/admin", true, /_controller\.js$/);
 Application.load(definitionsFromContext(context));
 const application = Application.start();
-
-const Turbolinks = require("turbolinks");
-Turbolinks.start();
-
-import * as ActiveStorage from "activestorage";
-ActiveStorage.start();

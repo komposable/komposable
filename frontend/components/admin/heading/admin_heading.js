@@ -1,4 +1,4 @@
-import "./heading.css";
+import "./admin_heading.css";
 
 import StickySidebar from 'sticky-sidebar';
 
