@@ -1,7 +1,4 @@
-import 'babel-polyfill';
-import "./items_table.css";
-
-import { Controller } from "stimulus"
+import { Controller } from "stimulus";
 
 export default class extends Controller {
   connect() {
