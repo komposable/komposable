@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     komposable (0.0.1.pre.1)
+      komponent (~> 1.1.4)
       pundit (~> 1.1.0)
       sorcery (~> 0.11)
       webpacker (~> 3.0)
@@ -89,6 +90,10 @@ GEM
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jwt (1.5.6)
+    komponent (1.1.4)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      webpacker (>= 3.0.0)
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -115,7 +120,7 @@ GEM
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.4)
-    rack-proxy (0.6.3)
+    rack-proxy (0.6.4)
       rack
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
@@ -162,7 +167,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    webpacker (3.2.2)
+    webpacker (3.4.3)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)

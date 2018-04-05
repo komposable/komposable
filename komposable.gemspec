@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "komponent", "~> 1.1.4"
   spec.add_dependency "pundit", "~> 1.1.0"
   spec.add_dependency "sorcery", "~> 0.11"
   spec.add_dependency "webpacker", "~> 3.0"
