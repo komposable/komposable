@@ -7,9 +7,7 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import "normalize.css";
-import "base/defaults";
-import "base/admin";
+import "admin";
 import "components/admin";
 import "components/blocks";
 

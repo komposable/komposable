@@ -40,13 +40,25 @@ Add at the end of the file:
 Rails.application.config.assets.precompile += %w( admin.js admin.css )
 ```
 
-Add the engine path to resolved paths:
+Add the engine path to resolved paths for webpacker and postcss:
 
 ```yml
 # config/webpacker.yml
 
-resolved_paths:
+  resolved_paths:
+    - frontend
     - vendor/komposable/frontend
+```
+
+```yml
+# .postcssrc.yml
+
+  postcss-import: {
+    path: [
+      'frontend',
+      'vendor/komposable/frontend'
+    ]
+  }
 ```
 
 Create a new javascript pack:

@@ -852,6 +852,15 @@ cosmiconfig@^4.0.0:
     parse-json "^4.0.0"
     require-from-string "^2.0.1"
 
+cpr@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/cpr/-/cpr-2.2.0.tgz#2dc6c87dfb78012489cdd994227628c320e9a17b"
+  dependencies:
+    graceful-fs "^4.1.5"
+    minimist "^1.2.0"
+    mkdirp "~0.5.1"
+    rimraf "^2.5.4"
+
 create-ecdh@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.0.tgz#888c723596cdf7612f6498233eebd7a35301737d"
@@ -1846,7 +1855,7 @@ gonzales-pe@^4.0.3:
   dependencies:
     minimist "1.1.x"
 
-graceful-fs@^4.1.2:
+graceful-fs@^4.1.2, graceful-fs@^4.1.5:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
@@ -2990,7 +2999,7 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.1:
+mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.1, mkdirp@~0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
@@ -3988,7 +3997,7 @@ restore-cursor@^2.0.0:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
 
-rimraf@2, rimraf@^2.2.8, rimraf@^2.5.1, rimraf@^2.6.1:
+rimraf@2, rimraf@^2.2.8, rimraf@^2.5.1, rimraf@^2.5.4, rimraf@^2.6.1:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   dependencies:
@@ -4531,6 +4540,12 @@ symbol-observable@1.0.1:
 symbol-observable@^0.2.2:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-0.2.4.tgz#95a83db26186d6af7e7a18dbd9760a2f86d08f40"
+
+system-font-css@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/system-font-css/-/system-font-css-2.0.2.tgz#88c4ae30eda94bc60705cba7d66c8c822f3c47db"
+  dependencies:
+    cpr "^2.2.0"
 
 table@^4.0.1:
   version "4.0.2"

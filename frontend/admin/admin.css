@@ -1,0 +1,38 @@
+@import "admin/variables";
+
+body.is-admin {
+  background: var(--brand-bg-color);
+}
+
+html {
+  box-sizing: border-box; /* natural box layout model to all elements */
+  font-size: 62.5%; /* for easy rem sizing */
+}
+
+/* allow modules to change the box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: white;
+  color: var(--asphalt);
+  font-family: var(--font-family);
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* Turbolinks */
+.turbolinks-progress-bar {
+  height: 0.3rem;
+  background-color: var(--white);
+}

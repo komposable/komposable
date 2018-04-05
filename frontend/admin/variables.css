@@ -1,4 +1,15 @@
 :root {
+  --container-max-width: 130rem;
+  --components-max-width: 56rem;
+  --font-family: system-ui;
+
+  /* Media queries */
+  @custom-media --small (max-width: 499px);
+  @custom-media --small-and-medium (max-width: 799px);
+  @custom-media --medium (min-width: 500px and max-width: 799px);
+  @custom-media --medium-and-large (min-width: 500px);
+  @custom-media --large (min-width: 800px);
+
   /* Set the client brand color, so it can be reused in the admin */
   --brand-color: #ffd700;
   --brand-bg-color: #fffbed;

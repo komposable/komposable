@@ -1,5 +1,4 @@
-@import "base/colors";
-@import "base/variables";
+@import "admin/variables";
 
 .admin-header {
   align-items: center;

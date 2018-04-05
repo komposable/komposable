@@ -1,4 +1,4 @@
-@import "base/colors";
+@import "admin/variables";
 
 .admin-blocks {
   border-top: 0.1rem solid var(--border-color);

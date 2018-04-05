@@ -1,5 +1,0 @@
-@import "colors";
-
-body.is-admin {
-  background: var(--brand-bg-color);
-}
