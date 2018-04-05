@@ -17,7 +17,7 @@ table.admin-items-table(cellspacing="0" data-controller="admin-items-table")
             - @columns.each do |column|
               - column_tag = { tag: column == @columns.first ? "th" : "td" }
               *column_tag
-                = item.public_send(column)
+                = cell(item, column)
             td.admin-items-table-actions
               = c "admin/button", text: "Edit", href: edit_path(item), modifiers: %w[has-outline is-secondary is-default-action]
               = c "admin/button", text: "Destroy", href: item_path(item), modifiers: %w[as-link is-secondary], data: { confirm: 'Are you sure?' }, method: :delete

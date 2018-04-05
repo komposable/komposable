@@ -19,6 +19,17 @@ module AdminItemsTableComponent
     end
   end
 
+  def cell(item, column)
+    value = item.public_send(column)
+
+    case value
+    when ActiveStorage::Attached::One
+      image_tag url_for(value)
+    else
+      value
+    end
+  end
+
   private
 
   def controller_namespace
