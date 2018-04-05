@@ -7,16 +7,17 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import "base";
+import "normalize.css";
+import "base/defaults";
 import "base/admin";
 import "components/admin";
 import "components/blocks";
 
-import { Application } from "stimulus";
+import Application from "stimulus_application";
 import { definitionsFromContext } from "stimulus/webpack-helpers";
+const context = require.context("../components/admin", true, /_controller\.js$/);
+Application.load(definitionsFromContext(context));
 const application = Application.start();
-const controllers = require.context("components/admin", true, /_controller\.js$/);
-application.load(definitionsFromContext(context));
 
 const Turbolinks = require("turbolinks");
 Turbolinks.start();
