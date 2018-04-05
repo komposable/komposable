@@ -14,6 +14,7 @@
   height: 17rem;
   justify-content: space-around;
   margin-bottom: 1.4rem;
+  overflow: hidden;
   padding: 1rem;
   position: relative;
   text-decoration: none;
@@ -40,6 +41,15 @@
   &-meta {
     line-height: 1.4;
     text-align: center;
+    width: 15rem;
+
+    &-name {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 15rem;
+    }
 
     &-size {
       color: var(--gray99);
