@@ -1,6 +1,7 @@
-.admin-form-group
+.admin-form-group(class=@modifiers)
   label.admin-form-group-label
     = @label
     - if @help
       span.admin-form-group-help= @help
-  = yield
+  .admin-form-group-content
+    = yield

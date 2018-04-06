@@ -40,6 +40,10 @@ module AdminItemsTableComponent
     end
   end
 
+  def button_view?(item)
+    item.is_a?(Page) && respond_to?(:frontend_page_url) && frontend_page_url(item)
+  end
+
   private
 
   def controller_namespace

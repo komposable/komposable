@@ -17,7 +17,20 @@
   &-help {
     color: color(var(--brand-bg-color) shade(30%));
     font-size: 1.3rem;
+    font-style: italic;
     margin-left: 3.2rem;
+  }
+
+  &.as-flex {
+    .admin-form-group-content {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      > * + * {
+        margin-left: 1rem;
+      }
+    }
   }
 
   .admin-blocks-card-content & {

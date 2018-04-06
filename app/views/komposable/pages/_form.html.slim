@@ -11,10 +11,12 @@
           - @item.errors.full_messages.each do |message|
             li = message
 
-    = c "admin/form/group", label: "Title", help: "used at the top of the page and in browser tab"
+    = c "admin/form/group", label: "Title", help: "used at the top of the page and in the browser tab"
       = f.text_field :title
 
-    = c "admin/form/group", label: "Description", help: "visible in search engines and social networks shares"
+    = c "admin/form/group", label: "Description", help: "visible in search engines and social networks shares (ideally 55-300 characters)"
       = f.text_area :description
 
-    = render partial: "admin/pages/form_#{@item.pageable.class.to_s.underscore}", locals: {f: f} rescue nil
+    - begin
+      = render partial: "admin/pages/form_#{@item.pageable.class.to_s.underscore}", locals: {f: f}
+    - rescue ActionView::MissingTemplate

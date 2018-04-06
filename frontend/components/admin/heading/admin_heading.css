@@ -24,7 +24,18 @@
 
     .admin-heading-content {
       background-color: var(--brand-bg-color);
+      position: relative;
       padding: 3rem 0;
+
+      &:after {
+        background-color: var(--brand-bg-color);
+        content: "";
+        display: block;
+        height: 100%;
+        left: 100%;
+        position: absolute;
+        width: 50vw;
+      }
     }
   }
 
