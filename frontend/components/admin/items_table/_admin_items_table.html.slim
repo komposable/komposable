@@ -3,7 +3,7 @@ table.admin-items-table(cellspacing="0" data-controller="admin-items-table")
     thead
       tr
         - @columns.each do |column|
-          th= column.to_s.humanize
+          th= column_label(column)
         th
 
     - if @items.count.zero?
@@ -19,7 +19,9 @@ table.admin-items-table(cellspacing="0" data-controller="admin-items-table")
               *column_tag
                 = cell(item, column)
             td.admin-items-table-actions
-              = c "admin/button", text: "Edit", href: edit_path(item), modifiers: %w[has-outline is-secondary is-default-action]
-              = c "admin/button", text: "Destroy", href: item_path(item), modifiers: %w[as-link is-secondary], data: { confirm: 'Are you sure?' }, method: :delete
+              - if respond_to?(:frontend_page_path) && frontend_page_path(item)
+                = c "admin/button", icon: "eye", text: "View on site", href: frontend_page_path(item), modifiers: %w[has-outline is-secondary], target: "_blank"
+              = c "admin/button", text: "Edit", href: edit_path(item), modifiers: %w[has-outline is-secondary is-default-action] if policy(item).edit?
+              = c "admin/button", text: "Destroy", href: item_path(item), modifiers: %w[as-link is-secondary], data: { confirm: 'Are you sure?' }, method: :delete if policy(item).destroy?
   - else
     = yield

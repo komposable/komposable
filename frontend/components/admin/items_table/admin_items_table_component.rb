@@ -19,8 +19,18 @@ module AdminItemsTableComponent
     end
   end
 
+  def column_label(column)
+    case column
+    when Array
+      column.last
+    else
+      column.to_s.humanize
+    end
+  end
+
   def cell(item, column)
-    value = item.public_send(column)
+    attribute = cell_attribute(column)
+    value = item.public_send(attribute)
 
     case value
     when ActiveStorage::Attached::One
@@ -34,5 +44,14 @@ module AdminItemsTableComponent
 
   def controller_namespace
     params[:controller].split('/').first
+  end
+
+  def cell_attribute(column)
+    case column
+    when Array
+      column.first
+    else
+      column
+    end
   end
 end

@@ -48,8 +48,4 @@
         color(var(--brand-bg-color) shade(20%) alpha(0.75));
     }
   }
-
-  textarea {
-    min-height: 20rem;
-  }
 }

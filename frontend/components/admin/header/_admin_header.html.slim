@@ -3,7 +3,7 @@ header.admin-header
   nav.admin-header-nav.is-primary
     ul.admin-header-nav-items
       - items.each do |item|
-        - current_item = current_controller?(item.text.underscore)
+        - current_item = current_controller?(item.href.last)
         li.admin-header-nav-item(class=classnames('is-current': current_item))
           = link_to item.text, item.href
   nav.admin-header-nav.is-secondary
