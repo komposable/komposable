@@ -22,9 +22,10 @@ module Komposable
     # POST /admin/items
     def create
       @item = @klass.new(item_params)
+      authorize @item
 
       if @item.save
-        redirect_to @index_path, notice: "#{@klass_singular.humanize} was successfully created."
+        redirect_to redirect_after_create, notice: "#{@klass_singular.humanize} was successfully created."
       else
         render :new
       end
@@ -33,7 +34,7 @@ module Komposable
     # PATCH/PUT /admin/items/1
     def update
       if @item.update(item_params)
-        redirect_to @index_path, notice: "#{@klass_singular.humanize} was successfully updated."
+        redirect_to redirect_after_update, notice: "#{@klass_singular.humanize} was successfully updated."
       else
         render :edit
       end
@@ -42,7 +43,7 @@ module Komposable
     # DELETE /admin/items/1
     def destroy
       @item.destroy
-      redirect_to @index_path, notice: "#{@klass_singular.humanize} was successfully destroyed."
+      redirect_to redirect_after_destroy, notice: "#{@klass_singular.humanize} was successfully destroyed."
     end
 
     private
@@ -68,7 +69,27 @@ module Komposable
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(@klass_singular).permit(@klass.permitted_attributes)
+      if @item.present? && @item.respond_to?(:permitted_attributes)
+        permitted_attributes = @item.permitted_attributes
+      elsif @klass.respond_to?(:permitted_attributes)
+        permitted_attributes = @klass.permitted_attributes
+      else
+        raise "You have to define permitted_attributes for #{@klass}"
+      end
+
+      params.require(@klass_singular).permit(permitted_attributes)
+    end
+
+    def redirect_after_create
+      @index_path
+    end
+
+    def redirect_after_update
+      @index_path
+    end
+
+    def redirect_after_destroy
+      @index_path
     end
   end
 end
