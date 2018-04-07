@@ -1,0 +1,10 @@
+.admin-items-grid(data-controller="admin-items-grid")
+  - if @items
+    - if @items.count.zero?
+      p Nothing to display.
+    - else
+      - @items.each do |item|
+        = grid_component(item)
+      = c "admin/pagination", items: @items
+  - else
+    = yield

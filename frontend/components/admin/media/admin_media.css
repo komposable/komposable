@@ -21,14 +21,6 @@
   transition: all 0.2s ease;
   width: 17.8rem;
 
-  & + & {
-    margin-left: 1.4rem;
-  }
-
-  &:nth-child(7n+1) {
-    margin-left: 0;
-  }
-
   &:hover,
   &:focus {
   }
@@ -54,5 +46,9 @@
     &-size {
       color: var(--gray99);
     }
+  }
+
+  img {
+    max-width: 15rem;
   }
 }

@@ -1,4 +1,4 @@
-= link_to @media.service_url, class: "admin-media", target: "_blank"
+= link_to media_path(@media), class: "admin-media"
   = image_tag image
   .admin-media-meta
     strong.admin-media-meta-name(title=@media.filename)= @media.filename

@@ -1,0 +1,12 @@
+@import "admin/variables";
+
+.admin-items-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1.4rem;
+
+  > .admin-pagination {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}

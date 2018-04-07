@@ -1,0 +1,19 @@
+- set_meta_tags title: "Media"
+
+= c "admin/container"
+  = c "admin/heading", title: page_title
+    = c "admin/button", text: "Back", href: @index_path, modifiers: "is-secondary as-link"
+
+  h2= @item.filename
+
+  = link_to @item.service_url, target: "_blank" do
+    - begin
+      = image_tag @item.variant(resize: "400x400").processed.service_url
+    - rescue ActiveStorage::InvariableError
+      = image_tag @item.service_url, size: "400x400"
+
+  h2 Used in
+
+  ul
+    - @item.attachments.each do |attachment|
+      li= attachment.record

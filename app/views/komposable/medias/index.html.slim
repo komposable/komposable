@@ -6,10 +6,4 @@
     / TODO: upload page
     / = c "admin/button", icon: "upload", text: "Upload", href: "#", modifiers: %w[is-primary has-outline]
 
-  - if @items.count.zero?
-    p Nothing to display.
-  - else
-    - @items.each do |item|
-      = c "admin/media", media: item
-
-  = c "admin/pagination", items: @items
+  = c "admin/items_grid", component: "admin/media", component_key: "media", items: @items

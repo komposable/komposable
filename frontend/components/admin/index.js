@@ -5,6 +5,7 @@ import "components/admin/form";
 import "components/admin/header/admin_header";
 import "components/admin/heading/admin_heading";
 import "components/admin/icon/admin_icon";
+import "components/admin/items_grid/admin_items_grid";
 import "components/admin/items_table/admin_items_table";
 import "components/admin/media/admin_media";
 import "components/admin/notice/admin_notice";
