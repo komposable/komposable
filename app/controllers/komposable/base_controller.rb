@@ -5,8 +5,12 @@ module Komposable
 
     # GET /admin/items
     def index
-      @items = policy_scope(@klass).page params[:page]
       authorize @klass, :index?
+      @items = policy_scope(@klass).page params[:page]
+
+      # You can specify the default sorting and scoping
+      # by adding `admin_scope` as a class method on your model.
+      @items = @items.admin_scope if @klass.respond_to? :admin_scope
     end
 
     # GET /admin/items/new
@@ -80,6 +84,8 @@ module Komposable
       params.require(@klass_singular).permit(permitted_attributes)
     end
 
+    # You can customize the redirections in your controller
+    # by overriding the methods below.
     def redirect_after_create
       @index_path
     end

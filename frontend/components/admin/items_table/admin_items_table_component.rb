@@ -47,7 +47,7 @@ module AdminItemsTableComponent
   end
 
   def button_view?(item)
-    item.respond_to?(:to_frontend_url)
+    item.respond_to?(:to_frontend_url) && item.to_frontend_url.present?
   end
 
   private

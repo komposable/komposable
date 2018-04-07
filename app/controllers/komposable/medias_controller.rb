@@ -3,7 +3,7 @@ module Komposable
     skip_before_action :set_class_variables
 
     def index
-      @items = policy_scope(ActiveStorage::Blob).page(params[:page]).per(24)
+      @items = policy_scope(ActiveStorage::Blob).order(created_at: :desc).page(params[:page]).per(24)
       authorize ActiveStorage::Blob, :index?
     end
 
