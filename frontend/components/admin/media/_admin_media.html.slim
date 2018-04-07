@@ -1,5 +1,12 @@
-= link_to media_path(@media), class: "admin-media"
+- content = capture do
   = image_tag image
   .admin-media-meta
     strong.admin-media-meta-name(title=@media.filename)= @media.filename
     .admin-media-meta-size=< number_to_human_size(@media.byte_size)
+
+- if link?
+  = link_to media_path(@media), class: "admin-media"
+    = content
+- else
+  .admin-media
+    = content

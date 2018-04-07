@@ -12,6 +12,7 @@
   position: relative;
   transform: translateY(0);
   transition: all 0.2s ease;
+  z-index: 200;
 
   &-icon {
     margin-right: 1rem;

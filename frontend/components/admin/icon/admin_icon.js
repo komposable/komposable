@@ -1,5 +1,5 @@
 import "./admin_icon.css";
-const feather = require('feather-icons');
+import feather from "feather-icons";
 
 document.addEventListener('turbolinks:load', function(){
   feather.replace();
