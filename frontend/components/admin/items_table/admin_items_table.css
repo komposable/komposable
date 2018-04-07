@@ -33,6 +33,10 @@
     td {
       border-bottom: 0.1rem solid color(var(--brand-bg-color) shade(10%));
     }
+
+    em {
+      color: color(var(--brand-bg-color) shade(40%));
+    }
   }
 
   &-actions {

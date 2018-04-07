@@ -28,9 +28,15 @@ module AdminItemsTableComponent
     end
   end
 
+  def columns_count
+    @columns.size + 1
+  end
+
   def cell(item, column)
     attribute = cell_attribute(column)
     value = item.public_send(attribute)
+
+    return content_tag(:em, "none") if value.blank?
 
     case value
     when ActiveStorage::Attached::One

@@ -1,0 +1,23 @@
+@import "admin/variables";
+
+.admin-pagination {
+  text-align: center;
+
+  .page.current,
+  a {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+  }
+
+  a {
+    border: 0.1rem solid color(var(--brand-bg-color) shade(10%));
+    border-radius: 0.4rem;
+    color: color(var(--brand-bg-color) shade(40%));
+    text-decoration: none;
+
+    &:hover {
+      background-color: var(--white);
+      color: var(--gray2A);
+    }
+  }
+}

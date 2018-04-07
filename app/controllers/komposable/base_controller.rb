@@ -5,7 +5,7 @@ module Komposable
 
     # GET /admin/items
     def index
-      @items = policy_scope(@klass)
+      @items = policy_scope(@klass).page params[:page]
       authorize @klass, :index?
     end
 

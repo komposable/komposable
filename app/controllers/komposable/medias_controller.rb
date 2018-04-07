@@ -4,7 +4,7 @@ module Komposable
 
     # GET /admin/items
     def index
-      @items = policy_scope(ActiveStorage::Blob)
+      @items = policy_scope(ActiveStorage::Blob).page(params[:page]).per(24)
       authorize ActiveStorage::Blob, :index?
     end
   end
