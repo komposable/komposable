@@ -17,6 +17,9 @@
     = c "admin/form/group", label: "Description", help: "visible in search engines and social networks shares (ideally 55-300 characters)"
       = f.text_area :description
 
+    / You can add fields for a specific page by creating a partial in
+    / `app/views/admin/pages/_form_YOURPAGE.html.slim` (`YOURPAGE` being
+    / the model of your page).
     - begin
       = render partial: "admin/pages/form_#{@item.pageable.class.to_s.underscore}", locals: {f: f}
     - rescue ActionView::MissingTemplate
