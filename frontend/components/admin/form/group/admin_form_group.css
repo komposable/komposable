@@ -31,6 +31,12 @@
         margin-left: 1rem;
       }
     }
+
+    &.on-left {
+      .admin-form-group-content {
+        justify-content: flex-start;
+      }
+    }
   }
 
   .admin-blocks-card-content & {

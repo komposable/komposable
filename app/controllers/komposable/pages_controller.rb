@@ -1,6 +1,5 @@
 module Komposable
   class PagesController < BaseController
-    helper Komposable::PagesHelper
     # skip_before_action :set_class_variables
 
     # def index

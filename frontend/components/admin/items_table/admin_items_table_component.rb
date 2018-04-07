@@ -41,7 +41,7 @@ module AdminItemsTableComponent
   end
 
   def button_view?(item)
-    item.is_a?(Page) && respond_to?(:frontend_page_url) && frontend_page_url(item)
+    item.respond_to?(:to_frontend_url)
   end
 
   private

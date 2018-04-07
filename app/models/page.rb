@@ -18,4 +18,6 @@ class Page < ApplicationRecord
   def permitted_attributes
     [:title, :description, pageable_attributes: pageable.class.permitted_attributes]
   end
+
+  delegate :to_frontend_url, to: :pageable
 end
