@@ -29,7 +29,7 @@ module Komposable
       authorize @item
 
       if @item.save
-        redirect_to redirect_after_create, notice: "#{@klass_singular.humanize} was successfully created."
+        redirect_to redirect_after_create, notice: "#{@klass_singular&.humanize} was successfully created."
       else
         render :new
       end
@@ -38,7 +38,7 @@ module Komposable
     # PATCH/PUT /admin/items/1
     def update
       if @item.update(item_params)
-        redirect_to redirect_after_update, notice: "#{@klass_singular.humanize} was successfully updated."
+        redirect_to redirect_after_update, notice: "#{@klass_singular&.humanize} was successfully updated."
       else
         render :edit
       end
@@ -47,7 +47,7 @@ module Komposable
     # DELETE /admin/items/1
     def destroy
       @item.destroy
-      redirect_to redirect_after_destroy, notice: "#{@klass_singular.humanize} was successfully destroyed."
+      redirect_to redirect_after_destroy, notice: "#{@klass_singular&.humanize} was successfully destroyed."
     end
 
     private

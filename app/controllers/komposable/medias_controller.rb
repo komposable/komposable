@@ -8,9 +8,19 @@ module Komposable
     end
 
     def show
+      set_item
+      @index_path = [komposable, :medias]
+    end
+
+    private
+
+    def set_item
       @item = ActiveStorage::Blob.find(params[:id])
       authorize @item
-      @index_path = [komposable, :medias]
+    end
+
+    def redirect_after_destroy
+      [komposable, :medias]
     end
   end
 end

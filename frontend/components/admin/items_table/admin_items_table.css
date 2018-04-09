@@ -37,6 +37,10 @@
     em {
       color: color(var(--brand-bg-color) shade(40%));
     }
+
+    img {
+      max-height: 3.4rem;
+    }
   }
 
   &-actions {

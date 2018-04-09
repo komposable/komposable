@@ -12,8 +12,12 @@
     - rescue ActiveStorage::InvariableError
       = image_tag @item.service_url, size: "400x400"
 
-  h2 Used in
+  - if @item.attachments.exists?
+    h2 Used in
 
-  ul
-    - @item.attachments.each do |attachment|
-      li= attachment.record
+    ul
+      - @item.attachments.each do |attachment|
+        li= attachment.record
+  - else
+    p This media is no longer used on the website.
+    p= c "admin/button", text: "Delete", href: media_path(@item), data: { confirm: 'Are you sure?' }, method: :delete, modifiers: "has-outline is-red"
