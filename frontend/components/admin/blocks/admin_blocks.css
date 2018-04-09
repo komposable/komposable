@@ -11,11 +11,76 @@
     margin-bottom: 0.8rem;
   }
 
+  &-card {
+    border: 0.1rem solid var(--border-color);
+    border-radius: 0.4rem;
+    overflow: hidden;
+
+    &-header {
+      align-items: center;
+      border-bottom: 0.1rem solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 1.6rem 0.8rem 2rem;
+    }
+
+    &-content {
+      background-color: var(--white);
+
+      &.has-padding {
+        padding: 2rem;
+      }
+
+      .admin-button {
+        display: inline-block;
+      }
+
+      /* TODO: move this to the rich_text_block CSS */
+      .ql-toolbar.ql-snow {
+        background-color: color(var(--brand-bg-color) shade(5%));
+        border: 0;
+      }
+
+      .ql-container.ql-snow {
+        border: 0;
+      }
+
+      .ql-editor {
+        min-height: 20rem;
+      }
+    }
+
+    &-actions {
+      .admin-button {
+        opacity: 0.2;
+
+        &:hover,
+        &:focus,
+        .admin-blocks-card-header:hover & {
+          opacity: 1;
+        }
+      }
+    }
+
+    &.is-primary {
+      &,
+      .admin-blocks-card-header {
+        border-color: color(var(--color-primary) lightness(80%));
+      }
+
+      .admin-blocks-card-header {
+        background-color: color(var(--color-primary) lightness(92%));
+        color: var(--color-primary);
+        font-weight: 500;
+      }
+    }
+  }
+
   &-buttons {
     &-toggle {
       background: none;
       border: 0;
-      color: var(--primary-color);
+      color: var(--color-primary);
       cursor: pointer;
       display: block;
       height: 3.6rem;
@@ -49,71 +114,6 @@
           opacity: 1;
           transform: translateY(0);
         }
-      }
-    }
-  }
-
-  &-card {
-    border: 0.1rem solid var(--border-color);
-    border-radius: 0.4rem;
-    overflow: hidden;
-
-    &-header {
-      align-items: center;
-      border-bottom: 0.1rem solid var(--border-color);
-      display: flex;
-      justify-content: space-between;
-      padding: 0.8rem 1.6rem 0.8rem 2rem;
-    }
-
-    &-actions {
-      .admin-button {
-        opacity: 0.2;
-
-        &:hover,
-        &:focus,
-        .admin-blocks-card-header:hover & {
-          opacity: 1;
-        }
-      }
-    }
-
-    &-content {
-      background-color: var(--white);
-
-      &.has-padding {
-        padding: 2rem;
-      }
-
-      .admin-button {
-        display: inline-block;
-      }
-
-      /* TODO: move this to the rich_text_block CSS */
-      .ql-toolbar.ql-snow {
-        background-color: color(var(--brand-bg-color) shade(5%));
-        border: 0;
-      }
-
-      .ql-container.ql-snow {
-        border: 0;
-      }
-
-      .ql-editor {
-        min-height: 20rem;
-      }
-    }
-
-    &.is-primary {
-      &,
-      .admin-blocks-card-header {
-        border-color: color(var(--color-primary) lightness(80%));
-      }
-
-      .admin-blocks-card-header {
-        background-color: color(var(--color-primary) lightness(92%));
-        color: var(--color-primary);
-        font-weight: 500;
       }
     }
   }

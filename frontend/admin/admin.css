@@ -22,8 +22,8 @@ body {
 }
 
 body {
-  background-color: white;
-  color: var(--asphalt);
+  background-color: var(--white);
+  color: var(--gray2A);
   font-family: var(--font-family);
   font-size: 1.6rem;
   font-style: normal;
