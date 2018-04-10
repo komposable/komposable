@@ -6,11 +6,11 @@
 
   h2= @item.filename
 
-  = link_to @item.service_url, target: "_blank" do
+  = link_to @item.rails_representation_url, target: "_blank" do
     - begin
-      = image_tag @item.variant(resize: "400x400").processed.service_url
+      = image_tag @item.variant(resize: "400x400").processed.rails_representation_url
     - rescue ActiveStorage::InvariableError
-      = image_tag @item.service_url, size: "400x400"
+      = image_tag @item.rails_representation_url, size: "400x400"
 
   - if @item.attachments.exists?
     h2 Used in

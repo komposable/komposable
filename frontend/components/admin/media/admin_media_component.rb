@@ -10,9 +10,9 @@ module AdminMediaComponent
 
   def image
     begin
-      @media.variant(resize: "150x150").processed.service_url
+      @media.variant(resize: "150x150").processed.rails_representation_url
     rescue ActiveStorage::InvariableError
-      @media.service_url
+      @media.rails_representation_url
     end
   end
 end
