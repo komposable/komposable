@@ -1,4 +1,4 @@
-import "components/admin/blocks/admin_blocks";
+// import "components/admin/blocks/admin_blocks";
 import "components/admin/button/admin_button";
 import "components/admin/container/admin_container";
 import "components/admin/form";
