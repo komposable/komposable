@@ -2,6 +2,7 @@ module Komposable
   class Engine < Rails::Engine
     isolate_namespace Komposable
 
+    require 'acts_as_list'
     require 'kaminari'
     require 'pundit'
     require 'sorcery'

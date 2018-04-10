@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "acts_as_list", "~> 0.9.11"
   spec.add_dependency "kaminari", "~> 1.1.1"
   spec.add_dependency "komponent", "~> 1.1.4"
   spec.add_dependency "pundit", "~> 1.1.0"
