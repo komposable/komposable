@@ -46,8 +46,11 @@ module Komposable
 
     # DELETE /admin/items/1
     def destroy
-      @item.destroy
-      redirect_to redirect_after_destroy, notice: "#{@klass_singular&.humanize} was successfully destroyed."
+      if @item.destroy
+        redirect_to redirect_after_destroy, notice: "#{@klass_singular&.humanize} was successfully destroyed."
+      else
+        redirect_to redirect_after_destroy, alert: "#{@klass_singular&.humanize} cannot be destroyed (#{@item.errors.messages[:base].join(", ")})."
+      end
     end
 
     private
