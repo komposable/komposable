@@ -4,7 +4,7 @@ export default class extends Controller {
   connect() {
     if (this.element.classList.contains("js-is-hidden")) {
       this.reveal();
-      setTimeout(this.hide.bind(this), 4000);
+      setTimeout(this.destroy.bind(this), 4000);
     }
   }
 
