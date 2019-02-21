@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
+  enum role: { superadmin: 0, admin: 1, editor: 2, user: 3 }
+
   def full_name
     [first_name, last_name].compact.join(" ")
   end
