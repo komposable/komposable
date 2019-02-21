@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < Komposable::ApplicationRecord
   authenticates_with_sorcery!
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }

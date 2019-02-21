@@ -1,4 +1,4 @@
-class RichTextBlock < ApplicationRecord
+class RichTextBlock < Komposable::ApplicationRecord
   belongs_to :parent, polymorphic: true
 
   def self.permitted_attributes
