@@ -7,14 +7,14 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  enum role: { superadmin: 0, admin: 1, editor: 2, user: 3 }
+  enum role: { owner: 0, admin: 1, editor: 2, user: 3 }
 
   def full_name
-    [first_name, last_name].compact.join(" ")
+    [first_name, last_name].compact.join(' ')
   end
 
   def self.authorized_roles(current_user)
-    return roles.except(:superadmin) unless current_user.superadmin?
+    return roles.except(:owner) unless current_user.owner?
 
     roles
   end
