@@ -20,6 +20,12 @@
     = c "admin/form/group", label: "Last name"
       = f.text_field :last_name
 
+    = c "admin/form/group", label: "Role"
+      = form.collection_select :role,
+                               User.authorized_roles(current_user),
+                               :first,
+                               proc { |w| User.human_enum_name(:roles, w.first) }
+
     = c "admin/form/group", label: "Password", help: "must be at least 8 characters long"
       = f.password_field :password
 

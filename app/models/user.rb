@@ -13,6 +13,12 @@ class User < ApplicationRecord
     [first_name, last_name].compact.join(" ")
   end
 
+  def self.authorized_roles(current_user)
+    return roles.except(:superadmin) unless current_user.superadmin?
+
+    roles
+  end
+
   # Strong params
   def self.permitted_attributes
     [:email, :first_name, :last_name, :password, :password_confirmation]
