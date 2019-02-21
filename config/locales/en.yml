@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    models:
+    attributes:
+      user:
+        role: "role"
+        roles:
+          owner: "owner"
+          admin: "administrator"
+          editor: "editor"
+          user: "user"
