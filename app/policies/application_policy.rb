@@ -50,4 +50,8 @@ class ApplicationPolicy
       scope
     end
   end
+
+  def at_least_admin?
+    user.admin? || user.owner?
+  end
 end

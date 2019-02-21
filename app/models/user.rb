@@ -14,13 +14,10 @@ class User < Komposable::ApplicationRecord
   end
 
   def self.authorized_roles(current_user)
+    return nil unless current_user.owner? || current_user.admin?
+
     return roles.except(:owner) unless current_user.owner?
 
     roles
-  end
-
-  # Strong params
-  def self.permitted_attributes
-    [:email, :first_name, :last_name, :password, :password_confirmation]
   end
 end
