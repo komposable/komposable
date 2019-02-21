@@ -19,7 +19,7 @@
     "prettier": "^1.10.2",
     "stylelint": "^8.4.0",
     "stylelint-config-standard": "^18.0.0",
-    "webpack-dev-server": "^2.11.0"
+    "webpack-dev-server": "^3.2.0"
   },
   "dependencies": {
     "a11y-dialog": "^4.0.1",
