@@ -2,6 +2,7 @@ module Komposable
   class BaseController < Komposable::ApplicationController
     before_action :set_class_variables
     before_action :set_item, only: %i[edit update destroy]
+    before_action :set_page_title, only: %i[new edit]
 
     # GET /admin/items
     def index
@@ -18,12 +19,10 @@ module Komposable
     def new
       @item = @klass.new
       authorize @item
-      set_meta_tags title: t("actions.new_thing", thing: @klass_singular.humanize)
     end
 
     # GET /admin/items/1/edit
     def edit
-      set_meta_tags title: t("actions.edit_thing", thing: @klass_singular.humanize)
     end
 
     # POST /admin/items
@@ -42,7 +41,8 @@ module Komposable
     # PATCH/PUT /admin/items/1
     def update
       if @item.update(item_params)
-        redirect_to redirect_after_update, notice: "#{@klass_singular&.humanize} was successfully updated."
+        redirect_to redirect_after_update,
+                    notice: "#{@klass_singular&.humanize} was successfully updated."
       else
         render :edit
       end
@@ -51,9 +51,11 @@ module Komposable
     # DELETE /admin/items/1
     def destroy
       if @item.destroy
-        redirect_to redirect_after_destroy, notice: "#{@klass_singular&.humanize} was successfully destroyed."
+        redirect_to redirect_after_destroy,
+                    notice: "#{@klass_singular&.humanize} was successfully destroyed."
       else
-        redirect_to redirect_after_destroy, alert: "#{@klass_singular&.humanize} cannot be destroyed (#{@item.errors.messages[:base].join(", ")})."
+        redirect_to redirect_after_destroy,
+                    alert: "#{@klass_singular&.humanize} cannot be destroyed (#{@item.errors.messages[:base].join(", ")})."
       end
     end
 
@@ -66,16 +68,21 @@ module Komposable
       @klass = @klass_name.classify.constantize
       @klass_singular = @klass_name.singularize
       @index_path = [@namespace, @klass_name.to_sym]
-      if @namespace != 'komposable'
-        @new_path = [:new, @namespace, @klass_singular.to_sym]
-      else
-        @new_path = [:new, @klass_singular.to_sym]
-      end
+      @new_path = if @namespace != 'komposable'
+                    [:new, @namespace, @klass_singular.to_sym]
+                  else
+                    [:new, @klass_singular.to_sym]
+                  end
     end
 
     def set_item
       @item = @klass.find(params[:id])
       authorize @item
+    end
+
+    def set_page_title
+      key = "actions.#{params[:action]}_thing"
+      set_meta_tags title: t(key, thing: @klass_singular.humanize)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

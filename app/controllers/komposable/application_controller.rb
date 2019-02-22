@@ -10,6 +10,8 @@ module Komposable
 
     rescue_from Pundit::NotAuthorizedError, with: :not_authorized
 
+    def index; end
+
     protected
 
     def not_authenticated
@@ -18,7 +20,7 @@ module Komposable
 
     def not_authorized
       flash[:alert] = "You are not authorized to perform this action."
-      redirect_to(request.referrer || komposable.root_path)
+      redirect_to(request.referer || komposable.root_path)
     end
   end
 end
