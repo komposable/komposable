@@ -38,16 +38,12 @@ module AdminItemsTableComponent
   def cell(item, column)
     attribute = cell_attribute(column)
     value = cell_value(item, attribute)
-
     return content_tag(:em, 'none') if value.blank?
 
     case value
-    when ActiveStorage::Attached::One
-      image_tag url_for(value)
-    when ApplicationRecord
-      value.to_label
-    else
-      value
+    when ActiveStorage::Attached::One then image_tag url_for(value)
+    when ApplicationRecord            then value.to_label
+    else value
     end
   end
 
