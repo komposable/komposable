@@ -23,7 +23,12 @@
               text: t("destroy", scope: "actions"),
               href: [@namespace, @item],
               modifiers: "as-link is-red",
-              data: { confirm: 'Are you sure?' },
+              data: {\
+                confirm: t(\
+                  "messages.confirm_destroy_item",
+                  item: @klass_singular.humanize,
+                ),
+              },
               method: :delete
         = c "admin/button",
             icon: "save",

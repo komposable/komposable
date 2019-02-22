@@ -20,7 +20,8 @@ en:
     edit: "Edit"
     destroy: "Destroy"
     save: "Save"
-  flashes:
+  messages:
+    confirm_destroy_item: "Are you sure you want to destroy this %{item}?"
     created_item: "%{item} has been created."
     updated_item: "%{item} has been updated."
     destroyed_item: "%{item} has been destroyed."

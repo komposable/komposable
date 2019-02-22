@@ -31,7 +31,7 @@ module Komposable
       authorize @item
 
       if @item.save
-        notice = t("flashes.created_item", item: @klass_singular&.humanize)
+        notice = t("messages.created_item", item: @klass_singular&.humanize)
         redirect_to redirect_after_create,
                     notice: notice
       else
@@ -42,7 +42,7 @@ module Komposable
     # PATCH/PUT /admin/items/1
     def update
       if @item.update(item_params)
-        notice = t("flashes.updated_item", item: @klass_singular&.humanize)
+        notice = t("messages.updated_item", item: @klass_singular&.humanize)
         redirect_to redirect_after_update,
                     notice: notice
       else
@@ -53,12 +53,12 @@ module Komposable
     # DELETE /admin/items/1
     def destroy
       if @item.destroy
-        notice = t("flashes.destroyed_item", item: @klass_singular&.humanize)
+        notice = t("messages.destroyed_item", item: @klass_singular&.humanize)
         redirect_to redirect_after_destroy,
                     notice: notice
       else
         alert = t(
-          "flashes.cannot_destroy_item",
+          "messages.cannot_destroy_item",
           item: @klass_singular&.humanize,
           errors: @item.errors.messages[:base].join(", ")
         )

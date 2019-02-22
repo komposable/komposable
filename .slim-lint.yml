@@ -12,6 +12,7 @@ linters:
     ignored_cops:
       - Layout/IndentHash
       - Style/ConditionalAssignment
+      - Style/TrailingCommaInArguments
       # defaults from slim-lint:
       - Layout/AlignArray
       - Layout/AlignHash
