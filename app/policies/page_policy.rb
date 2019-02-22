@@ -6,8 +6,7 @@ class PagePolicy < ApplicationPolicy
   end
 
   def index?
-    # TODO: limit to admins
-    true
+    at_least_admin?
   end
 
   def create?
@@ -15,8 +14,7 @@ class PagePolicy < ApplicationPolicy
   end
 
   def update?
-    # TODO: limit to admins
-    true
+    at_least_admin?
   end
 
   def destroy?

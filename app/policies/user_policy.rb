@@ -22,10 +22,12 @@ class UserPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
+    common_attributes = %i[email first_name last_name password password_confirmation]
+
     if at_least_admin?
-      %i[email first_name last_name role password password_confirmation]
+      common_attributes + %i[role]
     else
-      %i[email first_name last_name password password_confirmation]
+      common_attributes
     end
   end
 end

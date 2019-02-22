@@ -18,7 +18,7 @@ module Komposable
     end
 
     def item_params
-      permitted_attributes(@item)
+      permitted_attributes(@klass)
     end
   end
 end
