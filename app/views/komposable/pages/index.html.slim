@@ -2,4 +2,6 @@
 
   = c "admin/heading", title: page_title
 
-  = c "admin/items_table", items: @items, columns: { internal_name: "Name", title: "Title" }
+  = c "admin/items_table",
+      items: @items,
+      columns: [[:name, :internal_name], :title ]

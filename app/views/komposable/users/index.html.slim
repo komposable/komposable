@@ -1,11 +1,12 @@
 = c "admin/container"
+  = c "admin/heading", title: page_title, actions: :index
 
-  = c "admin/heading", title: page_title
-    - if policy(@klass).new?
-      = c "admin/button",
-          icon: "plus",
-          text: "New #{@klass_singular.humanize}",
-          href: @new_path,
-          modifiers: %w[is-primary has-outline]
-
-  = c "admin/items_table", items: @items, columns: [:full_name, :email, :role]
+  ruby:
+    columns = [
+      :full_name,
+      :email,
+      [:role, ->(item) { User.human_enum_name(:roles, item.role) }]
+    ]
+  = c "admin/items_table",
+      items: @items,
+      columns: columns

@@ -1,15 +1,20 @@
 import { Controller } from "stimulus";
+import Turbolinks from "turbolinks";
 
 export default class extends Controller {
-  connect() {
-  }
+  connect() {}
 
   clickBody(e) {
-    if (e.target.classList.contains('admin-button') || e.target.tagName == 'A' || e.target.closest('a, .admin-button')) return;
+    if (
+      e.target.classList.contains("admin-button") ||
+      e.target.tagName === "A" ||
+      e.target.closest("a, .admin-button")
+    )
+      return;
     e.preventDefault();
 
-    let line = e.target.closest('tr');
-    let defaultButton = line.querySelector('.admin-button.is-default-action')
+    const line = e.target.closest("tr");
+    const defaultButton = line.querySelector(".admin-button.is-default-action");
 
     if (!defaultButton) return;
     Turbolinks.visit(defaultButton.href);
