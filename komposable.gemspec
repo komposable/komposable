@@ -24,8 +24,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "acts_as_list", "~> 0.9.11"
   spec.add_dependency "kaminari", "~> 1.1.1"
   spec.add_dependency "komponent", "~> 1.1.4"
-  spec.add_dependency "pundit", "~> 1.1.0"
-  spec.add_dependency "sorcery", "~> 0.11"
+  spec.add_dependency "pundit", "~> 2.0.0"
+  spec.add_dependency "sorcery", "~> 0.13"
   spec.add_dependency "webpacker", "~> 3.0"
 
   spec.add_development_dependency "aruba"
