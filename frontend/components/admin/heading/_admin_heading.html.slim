@@ -9,7 +9,7 @@
         - if policy(@klass).new?
           = c "admin/button",
               icon: "plus",
-              text: t("new_thing", scope: "actions", thing: @klass_singular.humanize),
+              text: t("new_item", scope: "actions", item: @klass_singular.humanize),
               href: @new_path,
               modifiers: "is-primary has-outline"
       - when :form

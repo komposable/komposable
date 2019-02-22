@@ -31,8 +31,9 @@ module Komposable
       authorize @item
 
       if @item.save
+        notice = t("flashes.created_item", item: @klass_singular&.humanize)
         redirect_to redirect_after_create,
-                    notice: "#{@klass_singular&.humanize} was successfully created."
+                    notice: notice
       else
         render :new
       end
@@ -41,8 +42,9 @@ module Komposable
     # PATCH/PUT /admin/items/1
     def update
       if @item.update(item_params)
+        notice = t("flashes.updated_item", item: @klass_singular&.humanize)
         redirect_to redirect_after_update,
-                    notice: "#{@klass_singular&.humanize} was successfully updated."
+                    notice: notice
       else
         render :edit
       end
@@ -51,11 +53,17 @@ module Komposable
     # DELETE /admin/items/1
     def destroy
       if @item.destroy
+        notice = t("flashes.destroyed_item", item: @klass_singular&.humanize)
         redirect_to redirect_after_destroy,
-                    notice: "#{@klass_singular&.humanize} was successfully destroyed."
+                    notice: notice
       else
+        alert = t(
+          "flashes.cannot_destroy_item",
+          item: @klass_singular&.humanize,
+          errors: @item.errors.messages[:base].join(", ")
+        )
         redirect_to redirect_after_destroy,
-                    alert: "#{@klass_singular&.humanize} cannot be destroyed (#{@item.errors.messages[:base].join(", ")})."
+                    alert: alert
       end
     end
 
@@ -81,8 +89,8 @@ module Komposable
     end
 
     def set_page_title
-      key = "actions.#{params[:action]}_thing"
-      set_meta_tags title: t(key, thing: @klass_singular.humanize)
+      key = "actions.#{params[:action]}_item"
+      set_meta_tags title: t(key, item: @klass_singular.humanize)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

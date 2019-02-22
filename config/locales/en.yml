@@ -12,11 +12,16 @@ en:
   actions:
     back: "Back"
     show: "Show"
-    new_thing: "New %{thing}"
-    edit_thing: "Edit %{thing}"
+    new_item: "New %{item}"
+    edit_item: "Edit %{item}"
     create: "Create"
     preview: "Preview"
     show_on_site: "Show on site"
     edit: "Edit"
     destroy: "Destroy"
     save: "Save"
+  flashes:
+    created_item: "%{item} has been created."
+    updated_item: "%{item} has been updated."
+    destroyed_item: "%{item} has been destroyed."
+    cannot_destroy_item: "%{item} cannot be destroyed (%{errors})."
