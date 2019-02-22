@@ -9,6 +9,10 @@ class PagePolicy < ApplicationPolicy
     at_least_admin?
   end
 
+  def show?
+    false
+  end
+
   def create?
     false
   end
