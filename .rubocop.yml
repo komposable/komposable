@@ -1,0 +1,44 @@
+AllCops:
+  Include:
+    - 'app/**/*.rb'
+    - 'frontend/**/*.rb'
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/Vagrantfile'
+    - '**/config.ru'
+  Exclude:
+    - 'app/**/*.slim'
+    - 'app/**/*.erb'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'node_modules/**/*'
+    - 'script/**/*'
+    - 'vendor/ruby/**/*'
+
+Documentation:
+  Enabled: false
+
+Layout/EndOfLine:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/Output:
+  Enabled: false
