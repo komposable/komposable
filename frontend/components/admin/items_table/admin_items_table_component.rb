@@ -24,10 +24,8 @@ module AdminItemsTableComponent
     label ||= column
 
     case label
-    when Symbol
-      label.to_s.humanize
-    else
-      label
+    when Symbol then label.to_s.humanize
+    else label
     end
   end
 
@@ -59,21 +57,16 @@ module AdminItemsTableComponent
 
   def cell_attribute(column)
     case column
-    when Array
-      column.last
-    else
-      column
+    when Array then column.last
+    else column
     end
   end
 
   def cell_value(item, attribute)
     case attribute
-    when Proc
-      attribute.call(item)
-    when Symbol
-      item.public_send(attribute)
-    else
-      attribute
+    when Proc   then attribute.call(item)
+    when Symbol then item.public_send(attribute)
+    else attribute
     end
   end
 end
