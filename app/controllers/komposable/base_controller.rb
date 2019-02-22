@@ -6,6 +6,7 @@ module Komposable
     # GET /admin/items
     def index
       authorize @klass, :index?
+      set_meta_tags title: @klass_name.humanize
       @items = policy_scope(@klass).page params[:page]
 
       # You can specify the default sorting and scoping
@@ -17,10 +18,12 @@ module Komposable
     def new
       @item = @klass.new
       authorize @item
+      set_meta_tags title: t("actions.new_thing", thing: @klass_singular.humanize)
     end
 
     # GET /admin/items/1/edit
     def edit
+      set_meta_tags title: t("actions.edit_thing", thing: @klass_singular.humanize)
     end
 
     # POST /admin/items
@@ -29,7 +32,8 @@ module Komposable
       authorize @item
 
       if @item.save
-        redirect_to redirect_after_create, notice: "#{@klass_singular&.humanize} was successfully created."
+        redirect_to redirect_after_create,
+                    notice: "#{@klass_singular&.humanize} was successfully created."
       else
         render :new
       end
