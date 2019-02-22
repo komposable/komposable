@@ -21,8 +21,8 @@ fr:
     destroy: "Supprimer"
     save: "Enregistrer"
   messages:
-    confirm_destroy_item: "Êtes-vous sûre de vouloir supprimer %{item} ?"
-    created_item: "%{item} a été créé."
-    updated_item: "%{item} a été modifié."
-    destroyed_item: "%{item} a été supprimé."
-    cannot_destroy_item: "%{item} n'a pas pu être supprimé (%{errors})."
+    confirm_destroy_item: "Êtes-vous sûr·e de vouloir supprimer %{item} ?"
+    created_item: "%{item} a été créé·e."
+    updated_item: "%{item} a été modifié·e."
+    destroyed_item: "%{item} a été supprimé·e."
+    cannot_destroy_item: "%{item} n'a pas pu être supprimé·e (%{errors})."
