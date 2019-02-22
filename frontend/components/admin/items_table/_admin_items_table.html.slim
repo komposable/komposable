@@ -9,7 +9,7 @@ table.admin-items-table(cellspacing="0" data-controller="admin-items-table")
     - if @items.count.zero?
       tfoot
         tr
-          td(colspan=columns_count) Nothing to display.
+          td(colspan=columns_count)= t(".state.empty")
     - else
       tbody(data-action="click->admin-items-table#clickBody")
         - @items.each do |item|
@@ -19,10 +19,28 @@ table.admin-items-table(cellspacing="0" data-controller="admin-items-table")
               *column_tag
                 = cell(item, column)
             td.admin-items-table-actions
+              - if policy(item).show?
+                = c "admin/button",
+                    icon: "eye",
+                    text: t("actions.show"),
+                    href: item_path(item),
+                    modifiers: "has-outline is-secondary is-default-action"
               - if button_view?(item)
-                = c "admin/button", icon: "eye", text: "View on site", href: item.to_frontend_url, modifiers: %w[has-outline is-secondary], target: "_blank"
-              = c "admin/button", text: "Edit", href: edit_path(item), modifiers: %w[has-outline is-secondary is-default-action] if policy(item).edit?
-              = c "admin/button", text: "Destroy", href: item_path(item), modifiers: %w[as-link is-secondary], data: { confirm: 'Are you sure?' }, method: :delete if policy(item).destroy?
+                = c "admin/button",
+                    icon: "eye",
+                    text: t("actions.show_on_site"),
+                    href: item.to_frontend_url,
+                    modifiers: "has-outline is-secondary",
+                    target: "_blank"
+              - if policy(item).edit?
+                = c "admin/button",
+                    text: t("actions.edit"),
+                    href: edit_path(item),
+                    modifiers: classnames(\
+                      "has-outline",
+                      "is-secondary",
+                      "is-default-action" => !policy(item).show?,
+                    )
       tfoot
         tr
           td(colspan=columns_count)

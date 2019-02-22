@@ -4,3 +4,34 @@
 
     .admin-heading-actions
       = yield
+      - case @actions
+      - when :index
+        - if policy(@klass).new?
+          = c "admin/button",
+              icon: "plus",
+              text: t("new_item", scope: "actions", item: @klass_singular.humanize),
+              href: @new_path,
+              modifiers: "is-primary has-outline"
+      - when :form
+        - if policy(@item).index?
+          = c "admin/button",
+              text: t("back", scope: "actions"),
+              href: @index_path,
+              modifiers: "is-secondary as-link"
+        - if @item.persisted? && policy(@item).destroy?
+          = c "admin/button",
+              text: t("destroy", scope: "actions"),
+              href: [@namespace, @item],
+              modifiers: "as-link is-red",
+              data: {\
+                confirm: t(\
+                  "messages.confirm_destroy_item",
+                  item: @klass_singular.humanize,
+                ),
+              },
+              method: :delete
+        = c "admin/button",
+            icon: "save",
+            text: t(@item.new_record? ? "create" : "save", scope: "actions"),
+            type: "submit",
+            modifiers: "is-primary has-outline is-large"

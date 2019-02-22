@@ -1,4 +1,4 @@
-class Page < ApplicationRecord
+class Page < Komposable::ApplicationRecord
   belongs_to :pageable, polymorphic: true
 
   validates :internal_name, presence: true

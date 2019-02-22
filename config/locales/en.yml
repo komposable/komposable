@@ -1,0 +1,28 @@
+en:
+  activerecord:
+    models:
+    attributes:
+      user:
+        role: "role"
+        roles:
+          owner: "owner"
+          admin: "administrator"
+          editor: "editor"
+          user: "user"
+  actions:
+    back: "Back"
+    show: "Show"
+    new_item: "New %{item}"
+    edit_item: "Edit %{item}"
+    create: "Create"
+    preview: "Preview"
+    show_on_site: "Show on site"
+    edit: "Edit"
+    destroy: "Destroy"
+    save: "Save"
+  messages:
+    confirm_destroy_item: "Are you sure you want to destroy this %{item}?"
+    created_item: "%{item} has been created."
+    updated_item: "%{item} has been updated."
+    destroyed_item: "%{item} has been destroyed."
+    cannot_destroy_item: "%{item} cannot be destroyed (%{errors})."

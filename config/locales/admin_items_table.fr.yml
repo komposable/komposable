@@ -1,0 +1,4 @@
+fr:
+  admin_items_table_component:
+    state:
+      empty: "La liste est vide."

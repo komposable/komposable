@@ -20,11 +20,12 @@ module AdminItemsTableComponent
   end
 
   def column_label(column)
-    case column
-    when Array
-      column.last
-    else
-      column.to_s.humanize
+    label = column.first if column.is_a? Array
+    label ||= column
+
+    case label
+    when Symbol then label.to_s.humanize
+    else label
     end
   end
 
@@ -34,15 +35,13 @@ module AdminItemsTableComponent
 
   def cell(item, column)
     attribute = cell_attribute(column)
-    value = item.public_send(attribute)
-
-    return content_tag(:em, "none") if value.blank?
+    value = cell_value(item, attribute)
+    return content_tag(:em, 'none') if value.blank?
 
     case value
-    when ActiveStorage::Attached::One
-      image_tag url_for(value)
-    else
-      value
+    when ActiveStorage::Attached::One then image_tag url_for(value)
+    when ApplicationRecord            then value.to_label
+    else value
     end
   end
 
@@ -58,10 +57,16 @@ module AdminItemsTableComponent
 
   def cell_attribute(column)
     case column
-    when Array
-      column.first
-    else
-      column
+    when Array then column.last
+    else column
+    end
+  end
+
+  def cell_value(item, attribute)
+    case attribute
+    when Proc   then attribute.call(item)
+    when Symbol then item.public_send(attribute)
+    else attribute
     end
   end
 end

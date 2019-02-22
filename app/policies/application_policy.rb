@@ -11,7 +11,7 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    scope.where(id: record.id).exists?
   end
 
   def create?
@@ -49,5 +49,13 @@ class ApplicationPolicy
     def resolve
       scope
     end
+  end
+
+  def at_least_admin?
+    user.admin? || user.owner?
+  end
+
+  def at_least_editor?
+    at_least_admin? || user.editor?
   end
 end

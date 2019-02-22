@@ -1,7 +1,7 @@
 module Komposable
   class UserSessionsController < Komposable::ApplicationController
-    skip_before_action :require_login, except: [:destroy]
-    skip_after_action :verify_authorized, except: :index
+    skip_before_action :require_login, except: :destroy
+    skip_after_action :verify_authorized
 
     def new
       @user = User.new

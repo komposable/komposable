@@ -2,7 +2,10 @@
 
 = c "admin/container"
   = c "admin/heading", title: page_title
-    = c "admin/button", text: "Back", href: @index_path, modifiers: "is-secondary as-link"
+    = c "admin/button",
+        text: t("back", scope: "actions"),
+        href: @index_path,
+        modifiers: "is-secondary as-link"
 
   h2= @item.filename
 
@@ -20,4 +23,9 @@
         li= attachment.record
   - else
     p This media is no longer used on the website.
-    p= c "admin/button", text: "Delete", href: media_path(@item), data: { confirm: 'Are you sure?' }, method: :delete, modifiers: "has-outline is-red"
+    p= c "admin/button",
+         text: t("destroy", scope: "actions"),
+         href: media_path(@item),
+         data: { confirm: 'Are you sure?' },
+         method: :delete,
+         modifiers: "has-outline is-red"

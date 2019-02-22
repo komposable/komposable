@@ -1,0 +1,44 @@
+include:
+  - app/views/**/*.slim
+  - frontend/**/*.slim
+exclude:
+  - vendor/ruby/**/*
+linters:
+  ControlStatementSpacing:
+    enabled: false
+  LineLength:
+    max: 100
+  RuboCop:
+    ignored_cops:
+      - Layout/IndentHash
+      - Style/ConditionalAssignment
+      - Style/TrailingCommaInArguments
+      # defaults from slim-lint:
+      - Layout/AlignArray
+      - Layout/AlignHash
+      - Layout/AlignParameters
+      - Layout/FirstParameterIndentation
+      - Layout/IndentArray
+      - Layout/IndentationConsistency
+      - Layout/IndentationWidth
+      - Layout/MultilineArrayBraceLayout
+      - Layout/MultilineAssignmentLayout
+      - Layout/MultilineHashBraceLayout
+      - Layout/MultilineMethodCallBraceLayout
+      - Layout/MultilineMethodCallIndentation
+      - Layout/MultilineMethodDefinitionBraceLayout
+      - Layout/MultilineOperationIndentation
+      - Layout/TrailingBlankLines
+      - Layout/TrailingWhitespace
+      - Lint/BlockAlignment
+      - Lint/EndAlignment
+      - Lint/Void
+      - Metrics/BlockLength
+      - Metrics/BlockNesting
+      - Metrics/LineLength
+      - Naming/FileName
+      - Style/EmptyLineAfterGuardClause
+      - Style/FrozenStringLiteralComment
+      - Style/IfUnlessModifier
+      - Style/Next
+      - Style/WhileUntilModifier

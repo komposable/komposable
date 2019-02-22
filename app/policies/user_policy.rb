@@ -6,22 +6,36 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    # TODO: limit to admins
-    true
+    at_least_admin?
+  end
+
+  def show?
+    false
   end
 
   def create?
-    # TODO: limit to admins
-    true
+    at_least_admin?
   end
 
   def update?
-    # TODO: limit to admins
-    true
+    at_least_admin? || user == record
   end
 
   def destroy?
-    # TODO: limit to admins
-    true
+    at_least_admin?
+  end
+
+  def permitted_attributes
+    common_attributes = %i[
+      email
+      first_name last_name
+      password password_confirmation
+    ]
+
+    if at_least_admin?
+      common_attributes + %i[role]
+    else
+      common_attributes
+    end
   end
 end

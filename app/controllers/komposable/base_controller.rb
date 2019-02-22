@@ -2,10 +2,12 @@ module Komposable
   class BaseController < Komposable::ApplicationController
     before_action :set_class_variables
     before_action :set_item, only: %i[edit update destroy]
+    before_action :set_page_title, only: %i[new edit]
 
     # GET /admin/items
     def index
       authorize @klass, :index?
+      set_meta_tags title: @klass_name.humanize
       @items = policy_scope(@klass).page params[:page]
 
       # You can specify the default sorting and scoping
@@ -29,7 +31,9 @@ module Komposable
       authorize @item
 
       if @item.save
-        redirect_to redirect_after_create, notice: "#{@klass_singular&.humanize} was successfully created."
+        notice = t("messages.created_item", item: @klass_singular&.humanize)
+        redirect_to redirect_after_create,
+                    notice: notice
       else
         render :new
       end
@@ -38,7 +42,9 @@ module Komposable
     # PATCH/PUT /admin/items/1
     def update
       if @item.update(item_params)
-        redirect_to redirect_after_update, notice: "#{@klass_singular&.humanize} was successfully updated."
+        notice = t("messages.updated_item", item: @klass_singular&.humanize)
+        redirect_to redirect_after_update,
+                    notice: notice
       else
         render :edit
       end
@@ -47,9 +53,17 @@ module Komposable
     # DELETE /admin/items/1
     def destroy
       if @item.destroy
-        redirect_to redirect_after_destroy, notice: "#{@klass_singular&.humanize} was successfully destroyed."
+        notice = t("messages.destroyed_item", item: @klass_singular&.humanize)
+        redirect_to redirect_after_destroy,
+                    notice: notice
       else
-        redirect_to redirect_after_destroy, alert: "#{@klass_singular&.humanize} cannot be destroyed (#{@item.errors.messages[:base].join(", ")})."
+        alert = t(
+          "messages.cannot_destroy_item",
+          item: @klass_singular&.humanize,
+          errors: @item.errors.messages[:base].join(", ")
+        )
+        redirect_to redirect_after_destroy,
+                    alert: alert
       end
     end
 
@@ -62,16 +76,21 @@ module Komposable
       @klass = @klass_name.classify.constantize
       @klass_singular = @klass_name.singularize
       @index_path = [@namespace, @klass_name.to_sym]
-      if @namespace != 'komposable'
-        @new_path = [:new, @namespace, @klass_singular.to_sym]
-      else
-        @new_path = [:new, @klass_singular.to_sym]
-      end
+      @new_path = if @namespace != 'komposable'
+                    [:new, @namespace, @klass_singular.to_sym]
+                  else
+                    [:new, @klass_singular.to_sym]
+                  end
     end
 
     def set_item
       @item = @klass.find(params[:id])
       authorize @item
+    end
+
+    def set_page_title
+      key = "actions.#{params[:action]}_item"
+      set_meta_tags title: t(key, item: @klass_singular.humanize)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
