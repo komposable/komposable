@@ -1,5 +1,19 @@
 # Komposable
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/a275eb10827d94d5795e/maintainability)](https://codeclimate.com/github/komposable/komposable/maintainability)
+
+**Komposable** allows you to quickly build a modular back-office for your Rails app. It offers standard features and allows you to implement you own specific needs easily.
+
+It's based on the following existing gems:
+
+- [sorcery](https://github.com/Sorcery/sorcery) for authentication
+- [pundit](https://github.com/varvet/pundit) for authorization
+- [acts_as_list](https://github.com/swanandp/acts_as_list) for sorting records manually
+- [kaminari](https://github.com/kaminari/kaminari) for pagination
+- & our very own [komponent](https://github.com/komposable/komponent) for organizing front-end code as components
+
+This gem has been inspired by [fae](https://github.com/wearefine/fae). It is developed by [Ouvrages](https://ouvrages-web.fr) and [Etamin Studio](https://etaminstudio.com).
+
 # Getting started
 
 ```ruby
