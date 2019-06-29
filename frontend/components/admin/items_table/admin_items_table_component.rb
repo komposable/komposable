@@ -36,9 +36,11 @@ module AdminItemsTableComponent
   def cell(item, column)
     attribute = cell_attribute(column)
     value = cell_value(item, attribute)
-    return content_tag(:em, 'none') if value.blank?
 
     case value
+    when nil                          then content_tag(:em, 'none')
+    when true                         then component("admin/icon", icon: "check")
+    when false                        then component("admin/icon", icon: "x")
     when ActiveStorage::Attached::One then image_tag url_for(value)
     when ApplicationRecord            then value.to_label
     else value
