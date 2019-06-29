@@ -21,6 +21,18 @@
     margin-left: 3.2rem;
   }
 
+  &.on-same-line {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin: 3rem 0 2rem;
+
+    .admin-form-group-content {
+      margin-right: 2rem;
+    }
+  }
+
   &.as-flex {
     .admin-form-group-content {
       align-items: center;
@@ -61,6 +73,11 @@
     padding: 0.6rem 1.2rem;
     transition: box-shadow 0.2s ease;
     width: 100%;
+
+    [type="checkbox"],
+    [type="radio"] {
+      width: inherit;
+    }
 
     &:focus {
       box-shadow: 0 0 0 0.2rem
