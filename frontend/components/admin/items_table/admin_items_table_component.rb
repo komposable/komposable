@@ -2,6 +2,7 @@ module AdminItemsTableComponent
   extend ComponentHelper
 
   property :columns, default: [:title]
+  property :default_action, default: :show
 
   def edit_path(item)
     if controller_namespace != 'komposable'
