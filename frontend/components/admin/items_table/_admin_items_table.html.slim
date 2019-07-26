@@ -24,7 +24,11 @@ table.admin-items-table(cellspacing="0" data-controller="admin-items-table")
                     icon: "eye",
                     text: t("actions.show"),
                     href: item_path(item),
-                    modifiers: "has-outline is-secondary is-default-action"
+                    modifiers: classnames(\
+                      "has-outline",
+                      "is-secondary",
+                      "is-default-action" => @default_action == :show,
+                    )
               - if button_view?(item)
                 = c "admin/button",
                     icon: "eye",
@@ -39,7 +43,7 @@ table.admin-items-table(cellspacing="0" data-controller="admin-items-table")
                     modifiers: classnames(\
                       "has-outline",
                       "is-secondary",
-                      "is-default-action" => !policy(item).show?,
+                      "is-default-action" => !policy(item).show? || @default_action == :edit,
                     )
       tfoot
         tr
