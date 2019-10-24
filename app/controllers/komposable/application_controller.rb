@@ -15,12 +15,17 @@ module Komposable
     protected
 
     def not_authenticated
-      redirect_to komposable.login_path, alert: "Please login first"
+      redirect_to(
+        komposable.login_path,
+        alert: t("messages.not_authenticated")
+      )
     end
 
     def not_authorized
-      flash[:alert] = "You are not authorized to perform this action."
-      redirect_to(request.referer || komposable.root_path)
+      redirect_to(
+        request.referer || komposable.root_path,
+        alert: t("messages.not_authorized")
+      )
     end
   end
 end

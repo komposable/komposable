@@ -1,0 +1,18 @@
+- set_meta_tags title: "Reset your password"
+
+= c "admin/container"
+  = c "admin/heading", title: page_title
+
+  = form_with url: password_resets_path,
+              local: true,
+              method: :post,
+              html: { class: "admin-form" } do |f|
+
+    = c "admin/form/group", label: "Email"
+      = f.email_field :email
+
+    = c "admin/button",
+        icon: "log-in",
+        text: "Send me instructions",
+        type: "submit",
+        modifiers: "is-primary has-outline"

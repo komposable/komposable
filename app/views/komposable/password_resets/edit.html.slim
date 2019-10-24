@@ -1,0 +1,27 @@
+- set_meta_tags title: "Change your password"
+
+= c "admin/container"
+  = c "admin/heading", title: page_title
+
+  = form_for @user,
+            url: password_reset_path(@token),
+            html: { class: "admin-form", method: :put } do |f|
+
+    - if @user.errors.any?
+      .admin-form-errors
+        h2 #{pluralize(@user.errors.count, "error")} prohibited this user from being saved:
+        ul
+          - @user.errors.full_messages.each do |msg|
+            li= msg
+
+    = c "admin/form/group", label: "Your Email"
+      = f.email_field :email
+
+    = c "admin/form/group", label: "Your new password"
+      = f.password_field :password
+
+    = c "admin/button",
+        icon: "log-in",
+        text: "Change my password",
+        type: "submit",
+        modifiers: "is-primary has-outline"
