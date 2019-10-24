@@ -10,4 +10,8 @@
 
     = c "admin/button", icon: "log-in", text: "Log in", type: "submit", modifiers: "is-primary has-outline"
 
-  = link_to "Reset my password", new_password_reset_path
+    .admin-form-footer
+      = c "admin/button",
+          text: t("reset_password", scope: "actions"),
+          href: new_password_reset_path,
+          modifiers: "is-secondary as-link"

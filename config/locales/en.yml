@@ -20,6 +20,7 @@ en:
     edit: "Edit"
     destroy: "Destroy"
     save: "Save"
+    reset_password: "Reset my password"
   messages:
     confirm_destroy_item: "Are you sure you want to destroy this %{item}?"
     created_item: "%{item} has been created."
