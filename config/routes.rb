@@ -3,6 +3,7 @@ Komposable::Engine.routes.draw do
   resources :medias
   resources :user_sessions
   resources :users
-  get 'login' => 'user_sessions#new', :as => :login
-  post 'logout' => 'user_sessions#destroy', :as => :logout
+  get 'login' => 'user_sessions#new', as: :login
+  post 'logout' => 'user_sessions#destroy', as: :logout
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end
