@@ -4,9 +4,9 @@
   max-width: 60rem;
 
   &-footer {
-    border: 0.1rem solid color(var(--brand-bg-color) shade(20%));
+    border-top: 1px solid color(var(--brand-bg-color) shade(20%));
     margin-top: 2rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
     text-align: right;
   }
 }
