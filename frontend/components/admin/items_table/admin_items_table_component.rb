@@ -44,6 +44,8 @@ module AdminItemsTableComponent
     when false                        then component("admin/icon", icon: "x")
     when ActiveStorage::Attached::One then image_tag url_for(value)
     when ApplicationRecord            then value.to_label
+    when ActiveRecord::Associations::CollectionProxy \
+      then value.map(&:to_label).join(", ")
     else value
     end
   end
