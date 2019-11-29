@@ -17,6 +17,7 @@
     th {
       border-bottom: 0.2rem solid color(var(--brand-bg-color) shade(10%));
       vertical-align: bottom;
+      white-space: nowrap;
     }
   }
 
@@ -45,6 +46,7 @@
 
   &-actions {
     text-align: right;
+    white-space: nowrap;
 
     > * {
       vertical-align: middle;
