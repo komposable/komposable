@@ -1,6 +1,7 @@
 @import "admin/variables";
 
 .admin-pagination {
+  margin-bottom: 4rem;
   text-align: center;
 
   .page.current,
@@ -20,4 +21,24 @@
       color: var(--gray2A);
     }
   }
+  
+  /* Support for algolia instantsearch rendering */
+  .ais-Pagination {
+    &-list {
+      justify-content: center;
+    }
+
+    &-item {
+      margin: 0 0.2rem;
+    }
+
+    &-item--selected a {
+      border: 0;
+      color: inherit;
+      pointer-events: none;
+    }
+
+    &-item--disabled {
+      display: none;
+    }
 }
