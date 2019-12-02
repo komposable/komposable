@@ -19,15 +19,48 @@
     font-size: 1.3rem;
     font-style: italic;
     margin-left: 3.2rem;
-    
+
     a {
       color: inherit;
-      
+
       &:hover,
       &:focus {
         color: var(--black);
       }
     }
+  }
+
+  &-content {
+    > input, /* child combinator to prevent conflict with Choices UI */
+    input.has-default-style,
+    select,
+    textarea {
+      background-color: var(--white);
+      border: 0.1rem solid color(var(--brand-bg-color) shade(20%));
+      border-radius: 0.4rem;
+      box-shadow: 0;
+      display: block;
+      font-family: var(--font-family);
+      font-size: 1.6rem;
+      line-height: 1.5;
+      padding: 0.6rem 1.2rem;
+      transition: box-shadow 0.2s ease;
+      width: 100%;
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem
+          color(var(--brand-bg-color) shade(20%) alpha(0.75));
+      }
+    }
+
+    > input[type="checkbox"] {
+      width: auto;
+    }
+  }
+
+  /* modifiers */
+  &.is-hidden {
+    display: none;
   }
 
   &.on-same-line {
@@ -66,31 +99,6 @@
 
     &:last-child {
       padding-bottom: 2rem;
-    }
-  }
-
-  input,
-  textarea {
-    background-color: var(--white);
-    border: 0.1rem solid color(var(--brand-bg-color) shade(20%));
-    border-radius: 0.4rem;
-    box-shadow: 0;
-    display: block;
-    font-family: var(--font-family);
-    font-size: 1.6rem;
-    line-height: 1.5;
-    padding: 0.6rem 1.2rem;
-    transition: box-shadow 0.2s ease;
-    width: 100%;
-
-    [type="checkbox"],
-    [type="radio"] {
-      width: inherit;
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 0.2rem
-        color(var(--brand-bg-color) shade(20%) alpha(0.75));
     }
   }
 }
