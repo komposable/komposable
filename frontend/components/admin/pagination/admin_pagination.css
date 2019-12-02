@@ -21,7 +21,7 @@
       color: var(--gray2A);
     }
   }
-  
+
   /* Support for algolia instantsearch rendering */
   .ais-Pagination {
     &-list {
@@ -41,4 +41,5 @@
     &-item--disabled {
       display: none;
     }
+  }
 }
