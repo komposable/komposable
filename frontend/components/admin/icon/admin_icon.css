@@ -10,4 +10,12 @@
   &.is-before-text {
     margin-right: 0.5rem;
   }
+  
+  &.is-spinning {
+    animation: admin-icon-spinning 1s linear infinite;
+  }
+}
+
+@keyframes admin-icon-spinning {
+  to {transform: rotate(360deg);}
 }
