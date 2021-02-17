@@ -135,4 +135,8 @@
   &.is-red {
     color: var(--red);
   }
+
+  &.is-blue {
+    color: var(--blue);
+  }
 }
