@@ -25,6 +25,7 @@
   --yellow: #ffd700;
   --green: #62bb6d;
   --lightyellow: color(var(--yellow) lightness(+30%));
+  --blue: #6990f2;
 
   /* Shades of gray */
   --black: #000;
