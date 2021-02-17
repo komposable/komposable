@@ -5,7 +5,16 @@ module AdminButtonComponent
   property :type, default: "button"
 
   def element
-    { tag: @tag, type: @type, class: modifiers, data: @data, title: @title, name: @name, aria: @aria }
+    {
+      aria: @aria,
+      class: modifiers,
+      data: @data,
+      name: @name, 
+      tag: @tag,
+      title: @title,
+      type: @type,
+      value: @value
+    }
   end
 
   def modifiers
