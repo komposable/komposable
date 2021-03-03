@@ -48,6 +48,6 @@ table.admin-items-table(cellspacing="0" data-controller="admin-items-table")
       tfoot
         tr
           td(colspan=columns_count)
-            = c "admin/pagination", items: @items
+            = c "admin/pagination", items: @items, paginate_params: @paginate_params
   - else
     = yield
