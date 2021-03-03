@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "kaminari", "~> 1.2.1"
   spec.add_dependency "komponent", "~> 1.1.4"
   spec.add_dependency "pundit", "~> 2.0.0"
-  spec.add_dependency "sorcery", "~> 0.15"
+  spec.add_dependency "sorcery", "~> 0.16"
   spec.add_dependency "webpacker", "~> 3.0"
 
   spec.add_development_dependency "aruba"
